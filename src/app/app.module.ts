@@ -1,17 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MaterialDesignModule } from './modules/';
+import { MaterialDesignModule, GlobalModule } from './modules';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+import { GlobalLayoutComponent } from './global-layout/global-layout.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GlobalLayoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialDesignModule
+    MaterialDesignModule,
+    GlobalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
