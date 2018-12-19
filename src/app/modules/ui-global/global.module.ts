@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialDesignModule } from '@angular-eBooks/ui-material-design';
+import { UiMaterialDesignModule } from '@angular-eBooks/ui-material-design';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -16,7 +16,7 @@ import { SiderailComponent } from './siderail/siderail.component';
   ],
   imports: [
     CommonModule,
-    MaterialDesignModule
+    UiMaterialDesignModule
   ],
   exports: [
     ToolbarComponent,
@@ -25,4 +25,4 @@ import { SiderailComponent } from './siderail/siderail.component';
     SiderailComponent
   ]
 })
-export class GlobalModule { }
+export class UiGlobalModule { }

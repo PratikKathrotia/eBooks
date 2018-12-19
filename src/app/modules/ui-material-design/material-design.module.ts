@@ -77,4 +77,4 @@ import {
     MatTreeModule
   ]
 })
-export class MaterialDesignModule { }
+export class UiMaterialDesignModule { }
