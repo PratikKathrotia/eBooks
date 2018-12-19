@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { UiMaterialDesignModule } from '@angular-eBooks/ui-material-design';
 import { UiGlobalModule } from '@angular-eBooks/ui-global';
+import { UiContentModule } from '@angular-eBooks/ui-content';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -16,7 +17,8 @@ import { GlobalLayoutComponent } from './global-layout/global-layout.component';
     BrowserModule,
     AppRoutingModule,
     UiMaterialDesignModule,
-    UiGlobalModule
+    UiGlobalModule,
+    UiContentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

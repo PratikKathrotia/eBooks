@@ -20,7 +20,8 @@
     ],
     "paths": {
       "@angular-eBooks/ui-global": ["src/app/modules/ui-global/index"],
-      "@angular-eBooks/ui-material-design": ["src/app/modules/ui-material-design/index"]
+      "@angular-eBooks/ui-material-design": ["src/app/modules/ui-material-design/index"],
+      "@angular-eBooks/ui-content": ["src/app/modules/ui-content/index"]
     }
   }
 }
