@@ -17,6 +17,10 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@angular-eBooks/ui-global": ["src/app/modules/global"],
+      "@angular-eBooks/ui-material-design": ["src/app/modules/ui-material-design"]
+    }
   }
 }

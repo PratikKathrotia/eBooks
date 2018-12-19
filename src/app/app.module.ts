@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MaterialDesignModule, GlobalModule } from './modules';
+import { MaterialDesignModule } from '@angular-eBooks/ui-material-design';
+import { GlobalModule } from '@angular-eBooks/ui-global';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
