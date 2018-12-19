@@ -19,9 +19,9 @@
       "dom"
     ],
     "paths": {
-      "@angular-eBooks/ui-global": ["src/app/modules/ui-global/index"],
-      "@angular-eBooks/ui-material-design": ["src/app/modules/ui-material-design/index"],
-      "@angular-eBooks/ui-content": ["src/app/modules/ui-content/index"]
+      "@angular-eBooks/ui-global": ["src/libs/ui-global/index"],
+      "@angular-eBooks/ui-material-design": ["src/libs/ui-material-design/index"],
+      "@angular-eBooks/ui-content": ["src/libs/ui-content/index"]
     }
   }
 }
