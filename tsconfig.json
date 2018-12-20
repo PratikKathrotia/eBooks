@@ -17,6 +17,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@angular-eBooks/ui-common": ["src/libs/ui-common/index"],
+      "@angular-eBooks/ui-global": ["src/libs/ui-global/index"],
+      "@angular-eBooks/ui-material-design": ["src/libs/ui-material-design/index"],
+      "@angular-eBooks/ui-content": ["src/libs/ui-content/index"],
+      "@angular-eBooks/sys-utils": ["src/libs/sys-utils/index"]
+    }
   }
 }
