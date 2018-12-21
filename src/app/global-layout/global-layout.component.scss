@@ -7,7 +7,7 @@
   flex-direction: column;
 
   .app_ToolbarContainer {
-    max-height: 64px;
+    max-height: 64 * $px;
   }
 
   .app_LayoutContainer {
@@ -17,12 +17,12 @@
     background: $background-color;
 
     .layout_SidebarContainer {
-      width: 56px;
+      width: 56 * $px;
       box-shadow: $box-shadow-right;
     }
 
     .layout_SiderailContainer {
-      width: 256px;
+      width: 256 * $px;
       box-shadow: $box-shadow-right;
     }
 
@@ -33,12 +33,12 @@
 
       .content_Header {
         box-shadow: $box-shadow-bottom;
-        height: 80px;
+        height: 80 * $px;
       }
 
       .content_Actionbar {
         box-shadow: $box-shadow-bottom;
-        height: 56px;
+        height: 56 * $px;
       }
 
       .content_View {
