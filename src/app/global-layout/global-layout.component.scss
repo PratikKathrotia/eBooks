@@ -1,3 +1,6 @@
+@import 'src/styles/colors.scss';
+@import 'src/styles/variables.scss';
+
 .appContainer {
   height: 100vh;
   display: flex;
@@ -11,15 +14,16 @@
     display: flex;
     flex-direction: row;
     height: 100%;
+    background: $background-color;
 
     .layout_SidebarContainer {
       width: 56px;
-      background: rgb(94, 93, 93);
+      box-shadow: $box-shadow-right;
     }
 
     .layout_SiderailContainer {
       width: 256px;
-      background: rgb(117, 116, 116);
+      box-shadow: $box-shadow-right;
     }
 
     .layout_ContentContainer {
@@ -28,17 +32,16 @@
       flex-direction: column;
 
       .content_Header {
-        background: rgb(74, 74, 238);
+        box-shadow: $box-shadow-bottom;
         height: 80px;
       }
 
       .content_Actionbar {
-        background: rgb(116, 116, 241);
+        box-shadow: $box-shadow-bottom;
         height: 56px;
       }
 
       .content_View {
-        background: rgb(154, 154, 236);
         flex: 1;
       }
     }
