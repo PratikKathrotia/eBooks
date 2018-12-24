@@ -1,3 +1,8 @@
-<p>
-  siderail works!
-</p>
+<div class="siderail">
+  <div class="siderail_Items">
+    <div class="siderail_Item"
+         *ngFor="let item of siderailItems, let i = index">
+      {{item.title}}
+    </div>
+  </div>
+</div>

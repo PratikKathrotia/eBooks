@@ -1,3 +1,8 @@
-<p>
-  sidebar works!
-</p>
+<div class="sidebar">
+  <div class="sidebar_Item"
+       *ngFor="let item of sidebarItems, let i = index"
+       [ngClass]="{'selected': isSelected === item.id}"
+       (click)="selectIcon(item)">
+    <mat-icon color="primary">{{item.icon}}</mat-icon>
+  </div>
+</div>

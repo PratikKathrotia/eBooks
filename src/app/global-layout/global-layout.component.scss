@@ -17,12 +17,11 @@
     background: $background-color;
 
     .layout_SidebarContainer {
-      width: 56 * $px;
       box-shadow: $box-shadow-right;
     }
 
     .layout_SiderailContainer {
-      width: 256 * $px;
+      // width: 196 * $px;
       box-shadow: $box-shadow-right;
     }
 

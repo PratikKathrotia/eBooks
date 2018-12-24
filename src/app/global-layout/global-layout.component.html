@@ -4,10 +4,10 @@
   </div>
   <div class="app_LayoutContainer">
     <div class="layout_SidebarContainer">
-
+      <eb-sidebar></eb-sidebar>
     </div>
-    <div class="layout_SiderailContainer">
-
+    <div class="layout_SiderailContainer" *ngIf="showRail">
+      <eb-siderail></eb-siderail>
     </div>
     <div class="layout_ContentContainer">
       <div class="content_Header">
