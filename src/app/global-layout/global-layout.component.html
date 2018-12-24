@@ -1,2 +1,31 @@
-<eb-toolbar></eb-toolbar>
-<ng-content></ng-content>
+<div class="appContainer">
+  <div class="app_ToolbarContainer">
+    <eb-toolbar></eb-toolbar>
+  </div>
+  <div class="app_LayoutContainer">
+    <div class="layout_SidebarContainer">
+      <eb-sidebar></eb-sidebar>
+    </div>
+    <div class="layout_SiderailContainer" *ngIf="showRail">
+      <eb-siderail></eb-siderail>
+    </div>
+    <div class="layout_ContentContainer">
+      <div class="content_Header">
+
+      </div>
+      <div class="content_Actionbar">
+
+      </div>
+      <div class="content_View">
+        <!-- <ng-content></ng-content> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

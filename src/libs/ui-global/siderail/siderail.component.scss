@@ -1,0 +1,19 @@
+@import 'src/styles/variables.scss';
+
+.siderail {
+  padding: 10 * $px;
+
+  .siderail_Items {
+    .siderail_Item {
+      width: 128 * $px;
+      margin-top: 5 * $px;
+      padding: 7 * $px;
+      border-radius: 5 * $px;
+
+      &:hover {
+        cursor: pointer;
+        background: lightgrey;
+      }
+    }
+  }
+}

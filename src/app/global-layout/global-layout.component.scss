@@ -1,0 +1,48 @@
+@import 'src/styles/colors.scss';
+@import 'src/styles/variables.scss';
+
+.appContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .app_ToolbarContainer {
+    max-height: 64 * $px;
+  }
+
+  .app_LayoutContainer {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    background: $background-color;
+
+    .layout_SidebarContainer {
+      box-shadow: $box-shadow-right;
+    }
+
+    .layout_SiderailContainer {
+      // width: 196 * $px;
+      box-shadow: $box-shadow-right;
+    }
+
+    .layout_ContentContainer {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      .content_Header {
+        box-shadow: $box-shadow-bottom;
+        height: 80 * $px;
+      }
+
+      .content_Actionbar {
+        box-shadow: $box-shadow-bottom;
+        height: 56 * $px;
+      }
+
+      .content_View {
+        flex: 1;
+      }
+    }
+  }
+}
