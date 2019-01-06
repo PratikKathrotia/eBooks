@@ -5,14 +5,20 @@ import { UiGlobalModule } from '@angular-eBooks/ui-global';
 import { UiCommonModule } from '@angular-eBooks/ui-common';
 import { UiContentModule } from '@angular-eBooks/ui-content';
 import { AppRoutingModule } from './app-routing.module';
+import { environment } from '../environments/environment';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { AppComponent } from './app.component';
 import { GlobalLayoutComponent } from './global-layout/global-layout.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GlobalLayoutComponent,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +26,9 @@ import { GlobalLayoutComponent } from './global-layout/global-layout.component';
     UiMaterialDesignModule,
     UiCommonModule,
     UiGlobalModule,
-    UiContentModule
+    UiContentModule,
+    AngularFireModule.initializeApp(environment.frebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
