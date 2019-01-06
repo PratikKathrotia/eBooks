@@ -10,11 +10,11 @@ export class SidebarComponent implements OnInit {
   isSelected = 'item1';
   isRailShowing;
   sidebarItems = [
-    {name: 'home', id: 'item1', icon: 'home', showRail: true},
-    {name: 'books', id: 'item2', icon: 'book', showRail: true},
-    {name: 'bookmarks', id: 'item3', icon: 'bookmark', showRail: false},
-    {name: 'haide', id: 'item4', icon: 'notifications', showRail: true},
-    {name: 'blabla', id: 'item5', icon: 'import_contacts', showRail: false}
+    {name: 'home', id: 'item1', icon: 'home', tooltip: 'Home', showRail: true},
+    {name: 'books', id: 'item2', icon: 'book', tooltip: 'Books', showRail: true},
+    {name: 'bookmarks', id: 'item3', icon: 'bookmark', tooltip: 'Bookmarks', showRail: false},
+    {name: 'haide', id: 'item4', icon: 'notifications', tooltip: 'Notifications', showRail: true},
+    {name: 'blabla', id: 'item5', icon: 'import_contacts', tooltip: 'Contacts', showRail: false}
   ];
 
   constructor(private sidebarService: SidebarRailService) {}
