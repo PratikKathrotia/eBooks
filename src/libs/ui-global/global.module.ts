@@ -6,7 +6,6 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { SiderailComponent } from './siderail/siderail.component';
-import { HeaderComponent } from './header/header.component';
 import { ActionBarComponent } from './action-bar/action-bar.component';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { ActionBarComponent } from './action-bar/action-bar.component';
     SidebarComponent,
     FooterComponent,
     SiderailComponent,
-    HeaderComponent,
     ActionBarComponent
   ],
   imports: [
@@ -27,7 +25,6 @@ import { ActionBarComponent } from './action-bar/action-bar.component';
     SidebarComponent,
     FooterComponent,
     SiderailComponent,
-    HeaderComponent,
     ActionBarComponent
   ]
 })
