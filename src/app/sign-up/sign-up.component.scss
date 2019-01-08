@@ -7,13 +7,13 @@
   height: 100%;
 
   .signUp {
-    box-shadow: 2px 2px 2px 2px $box-shadow-color;
+    box-shadow: 2 * $px 2 * $px 2 * $px 2 * $px $box-shadow-color;
     background: white;
-    border-radius: 4px;
-    width: 400px;
+    border-radius: 4 * $px;
+    width: 400 * $px;
     margin: auto;
-    margin-top: 30px;
-    padding: 20px 20px 40px 20px;
+    margin-top: 30 * $px;
+    padding: 20 * $px 20 * $px 40 * $px 20 * $px;
     display: flex;
     flex-direction: column;
 
@@ -41,7 +41,7 @@
           display: flex;
           justify-content: space-between;
           width: 100%;
-          padding: 20px 0 0 0;
+          padding: 20 * $px 0 0 0;
 
           button {
             width: 48%;
