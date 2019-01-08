@@ -35,7 +35,11 @@
 
       .content_View {
         flex: 1;
-        padding: 10 * $px 16* $px;
+        padding: 0 16* $px;
+
+        .justForStyle {
+          display: none;
+        }
       }
     }
   }
