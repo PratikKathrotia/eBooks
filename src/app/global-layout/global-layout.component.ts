@@ -10,6 +10,8 @@ import { Subscription } from 'rxjs';
 export class GlobalLayoutComponent implements OnInit, OnDestroy {
   subscribe: Subscription;
   showRail;
+  loggedIn;
+  signUp;
 
   constructor(private railService: SidebarRailService) {
     this.subscribe = this.railService.openSiderail$.subscribe(bool => {
@@ -17,10 +19,17 @@ export class GlobalLayoutComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loggedIn = true;
+    this.signUp = false;
+  }
 
   ngOnDestroy() {
     this.subscribe.unsubscribe();
+  }
+
+  getToolbarVal(event) {
+    this.signUp = event;
   }
 
 }
