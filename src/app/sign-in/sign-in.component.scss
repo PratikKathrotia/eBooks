@@ -3,75 +3,74 @@
 .signIn_Container {
 
   .signIn_Div {
-  
     display: flex;
     flex-direction: column;
     margin: auto;
     width: 30%;
-    -moz-box-shadow: 2px 2px 2px 2px #ccc;
-    -webkit-box-shadow: 2px 2px 2px 2px #ccc;
-    box-shadow: 2px 2px 2px 2px #ccc;
-    border-radius: 4px;
+    -moz-box-shadow: 2 * $px 2 * $px 2 * $px 2 * $px #ccc;
+    -webkit-box-shadow: 2 * $px 2 * $px 2 * $px 2 * $px #ccc;
+    box-shadow: 2 * $px 2 * $px 2 * $px 2 * $px #ccc;
+    border-radius: 4 * $px;
 
+    .signIn_Form_Div {
+      margin: 20 * $px auto;
+      width: 81%;
+      
+      .signIn_Full_Width {
+        width: 100%;
+      }
+
+      .signIn_Button_Div {
+        display: flex;
+        justify-content: space-between;
+        padding: 10 * $px 15 * $px;
+        margin: 30 * $px 0 * $px 0 * $px 0 * $px;
+      }
+    }
+
+    .seperation_Div {
+      width: 100%;
+      display: flex;
+      justify-content: stretch;
+
+      .content {
+        width: 100%;
+        text-align: center;
+        color: rgb(129, 123, 123);
+      }
+  
+      .line {
+        margin-top: 10px;
+        width: 100%;
+        border-top: 1 * $px solid rgba(82, 80, 80, 0.726);
+      }
+    }
+
+    .signUp_Div {
+      margin: 30 * $px auto 40 * $px auto;
+      width: 81%;
+      display: flex;
+      justify-content: center;
+
+      .signUp_Button {  
+        width: 50%;
+      }
+    }
   }
 
-  .signIn_Form_Div {
+  
 
-    margin: 20px auto;
-    width: 81%;
-
-  }
-
-  .signIn_Full_Width {
-
-    width: 100%;
-
-  }
+  
     
-  .signIn_Button_Div {
-
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 15px;
-    margin: 30px 0px 0px 0px;
-
-  }
-
-  .seperation_Div {
   
-    width: 100%;
-    display: flex;
-    justify-content: stretch;
+
   
-  }
 
-  .line {
-    
-    margin-top: 10px;
-    width: 100%;
-    border-top: 1px solid rgba(82, 80, 80, 0.726);
-
-  }
-
-  .content {
   
-    width: 100%;
-    text-align: center;
-    color: rgb(129, 123, 123);
 
-  }
+ 
   
-  .signUp_Div {
-    margin: 30px auto 40px auto;
-    width: 81%;
-    display: flex;
-    justify-content: center;
-
-  }
-
-  .signUp_Button {
   
-    width: 50%;
-  }
 
+  
 }
