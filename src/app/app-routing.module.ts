@@ -3,11 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from '@angular-eBooks/ui-content';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/sign-up',
     pathMatch: 'full'
   },
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
   {
     path: 'sign-in',
     component: SignInComponent
+    
+    path: 'sign-up',
+    component: SignUpComponent
   }
 ];
 

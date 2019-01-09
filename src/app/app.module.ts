@@ -13,12 +13,14 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AppComponent } from './app.component';
 import { GlobalLayoutComponent } from './global-layout/global-layout.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GlobalLayoutComponent,
     SignInComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,31 @@
+@import 'src/styles/global.scss';
+@import 'src/styles/variables.scss';
+@import 'src/styles/colors.scss';
+
+.signUp_Container {
+  display: flex;
+  height: 100%;
+
+  .signUp {
+    box-shadow: 2px 2px 2px 2px $box-shadow-color;
+    height: 500px;
+    width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+    &_Header {
+      border: 0.5px solid black;
+
+      h2 {
+        text-align: center;
+      }
+    }
+
+    &_Content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
