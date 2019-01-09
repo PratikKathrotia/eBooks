@@ -5,7 +5,7 @@
     </div>
     <div class="signUp_Content">
       <h2>Sign Up</h2>
-      <form class="form_User" [formGroup]="signUpForm">
+      <form class="form_User" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
           <input matInput
                  placeholder="Firstname"
@@ -23,12 +23,14 @@
                  placeholder="Email"
                  formControlName="email"
                  autocomplete="off">
+          
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
           <input matInput
                  placeholder="Confirm Email"
                  formControlName="confirmEmail"
                  autocomplete="off">
+          <mat-error *ngIf="signUpForm.controls.confirmEmail.errors">{{getErrorMessage()}}</mat-error>
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
           <input matInput
