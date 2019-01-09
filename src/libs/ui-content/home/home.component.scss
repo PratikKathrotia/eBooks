@@ -4,3 +4,21 @@ button {
   margin: 10px;
 }
 
+.saperator {
+  border: 1px solid black;
+  width: 800px;
+  height: 100px;
+  display: flex;
+  justify-content: stretch;
+
+  .line1, .line2 {
+    width: 100%;
+    border-top: 2px solid red;
+    margin-top: 10px;
+  }
+
+  .content {
+    width: 100%;
+    text-align: center;
+  }
+}

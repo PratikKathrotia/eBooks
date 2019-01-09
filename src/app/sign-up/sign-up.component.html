@@ -1,16 +1,52 @@
-<div class="signUp_Container">
+<div class="signUp_Box">
   <div class="signUp">
     <div class="signUp_Header">
       <h2>Logo Goes Here</h2>
     </div>
     <div class="signUp_Content">
-      <form>
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Firstname">
+      <h2>Sign Up</h2>
+      <form class="form_User">
+        <mat-form-field>
+          <input matInput
+                 placeholder="Firstname"
+                 autocomplete="off">
         </mat-form-field>
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Lastname">
+        <mat-form-field>
+          <input matInput
+                 placeholder="Lastname"
+                 autocomplete="off">
         </mat-form-field>
+        <mat-form-field class="formField_FullWidth">
+          <input matInput
+                 placeholder="Email"
+                 autocomplete="off">
+        </mat-form-field>
+        <mat-form-field class="formField_FullWidth">
+          <input matInput
+                 placeholder="Confirm Email"
+                 autocomplete="off">
+        </mat-form-field>
+        <mat-form-field class="formField_FullWidth">
+          <input matInput
+                 placeholder="Username"
+                 autocomplete="off">
+        </mat-form-field>
+        <mat-form-field class="formField_FullWidth">
+          <input matInput
+                 placeholder="Password"
+                 autocomplete="off">
+        </mat-form-field>
+        <mat-form-field class="formField_FullWidth">
+          <input matInput
+                 placeholder="Confirm Password"
+                 autocomplete="off">
+        </mat-form-field>
+        <div class="form_Actions">
+          <button mat-flat-button
+                  color="primary"
+                  type="submit">Sign Up</button>
+          <button mat-flat-button color="accent">Cancel</button>
+        </div>
       </form>
     </div>
   </div>
