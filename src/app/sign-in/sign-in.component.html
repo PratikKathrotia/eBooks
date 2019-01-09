@@ -1,34 +1,34 @@
 <div class="signIn_Container">
-  <div class="signIn_Div">
-    <div class="signIn_Form_Div">
-      <form class="signIn-form">
-        <mat-form-field class="signIn_Full_Width">
-          <input matInput placeholder="Username or Email"/>
-        </mat-form-field>
-        <mat-form-field class="signIn_Full_Width">
-          <input matInput placeholder="Password" /> 
-        </mat-form-field>
-        <br />
-        <a href="#"><small>Forgot Password?</small></a>
-        <br />
-        <div class="signIn_Button_Div">
-          <button mat-raised-button color="primary">Sign In</button>
-          <button mat-raised-button color="accent">Cancel</button>
+    <div class="signIn_Div">
+      <div class="signIn_Form_Div">
+        <form class="signIn-form">
+          <mat-form-field class="signIn_Full_Width">
+            <input matInput placeholder="Username or Email"/>
+          </mat-form-field>
+          <mat-form-field class="signIn_Full_Width">
+            <input matInput placeholder="Password" /> 
+          </mat-form-field>
+          <br />
+          <a href="#"><small>Forgot Password?</small></a>
+          <br />
+          <div class="signIn_Button_Div">
+            <button mat-raised-button color="primary">Sign In</button>
+            <button mat-raised-button color="accent" (click)="backToPrev()">Cancel</button>
+          </div>
+        </form>
+      </div>
+      <div class="seperation_Div">
+        <div class="line">
         </div>
-      </form>
-    </div>
-    <div class="seperation_Div">
-      <div class="line">
+        <div class="content">
+          New User?
+        </div>
+        <div class="line">
+        </div>
       </div>
-      <div class="content">
-        New User?
+      <div class="signUp_Div">
+        <button mat-raised-button color="primary" class="signUp_Button" (click)="openSignUp()">Sign Up</button>
       </div>
-      <div class="line">
-      </div>
-    </div>
-    <div class="signUp_Div">
-      <button mat-raised-button color="primary" class="signUp_Button">Sign Up</button>
     </div>
   </div>
-</div>
-  
+    
