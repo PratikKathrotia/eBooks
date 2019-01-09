@@ -7,9 +7,18 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
   @Output() signUpVal = new EventEmitter();
+  @Output() signInVal = new EventEmitter();
+
+  loggedIn;
+
   constructor() { }
 
   ngOnInit() {
+    this.loggedIn = false;
+  }
+
+  openSignIn() {
+    this.signInVal.emit(true);
   }
 
   openSignUp() {

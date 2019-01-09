@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'eb-sign-in',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
+  @Output() prevPage = new EventEmitter();
+  @Output() signUpPage = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  backToPrev() {
+    this.prevPage.emit(false);
+  }
+
+  openSignUp() {
+    this.signUpPage.emit(true);
+  }
 }

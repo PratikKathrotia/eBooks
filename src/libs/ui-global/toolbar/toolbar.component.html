@@ -1,8 +1,9 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>eBooks</span>
-    <span class="example-spacer"></span>
-    <mat-icon class="person_icon">person</mat-icon>
-    <span class="signUp_Span" (click)="openSignUp()">Sign Up</span>
-  </mat-toolbar-row>
-</mat-toolbar>
+    <mat-toolbar-row>
+      <span>eBooks</span>
+      <span class="example-spacer"></span>
+      <span class="sign_In_Span" (click)="openSignIn()">Sign In</span>
+      <mat-icon class="person_icon" *ngIf="loggedIn">person</mat-icon>
+      <span class="signUp_Span" (click)="openSignUp()">Sign Up</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
