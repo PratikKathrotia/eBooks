@@ -5,40 +5,47 @@
     </div>
     <div class="signUp_Content">
       <h2>Sign Up</h2>
-      <form class="form_User">
+      <form class="form_User" [formGroup]="signUpForm">
         <mat-form-field>
           <input matInput
                  placeholder="Firstname"
+                 formControlName="firstName"
                  autocomplete="off">
         </mat-form-field>
         <mat-form-field>
           <input matInput
                  placeholder="Lastname"
+                 formControlName="lastName"
                  autocomplete="off">
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
           <input matInput
                  placeholder="Email"
+                 formControlName="email"
                  autocomplete="off">
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
           <input matInput
                  placeholder="Confirm Email"
+                 formControlName="confirmEmail"
                  autocomplete="off">
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
           <input matInput
                  placeholder="Username"
+                 formControlName="userName"
                  autocomplete="off">
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
           <input matInput
                  placeholder="Password"
+                 formControlName="password"
                  autocomplete="off">
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
           <input matInput
                  placeholder="Confirm Password"
+                 formControlName="confirmPassword"
                  autocomplete="off">
         </mat-form-field>
         <div class="form_Actions">

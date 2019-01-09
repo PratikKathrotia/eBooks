@@ -24,9 +24,9 @@
           <ng-content></ng-content>
 
           <!-- Just to get the styles right -->
-          <form class="justForStyle">
+          <form class="justForStyle" [formGroup]="demoForm">
             <mat-form-field>
-              <input matInput placeholder="Favorite food" autocomplete="off">
+              <input matInput formControlName="name">
             </mat-form-field>
           </form>
           <!-- upto here -->
