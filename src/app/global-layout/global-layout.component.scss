@@ -5,6 +5,11 @@
   background: $background-color;
   height: 100vh;
 
+  .logoPage {
+    h2 {
+      text-align: center;
+    }
+  }
   .app_Container {
     height: 100vh;
     display: flex;

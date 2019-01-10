@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class SignInComponent implements OnInit {
   signInForm: FormGroup;
 
+  @Output() prevPage = new EventEmitter();
+  @Output() signUpPage = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
@@ -18,4 +21,11 @@ export class SignInComponent implements OnInit {
     });
   }
 
+  backToPrev() {
+    this.prevPage.emit(false);
+  }
+
+  openSignUp() {
+    this.signUpPage.emit(true);
+  }
 }

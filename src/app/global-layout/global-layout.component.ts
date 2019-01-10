@@ -24,7 +24,7 @@ export class GlobalLayoutComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.loggedIn = true;
+    this.loggedIn = false;
     this.signUp = false;
   }
 
@@ -32,8 +32,15 @@ export class GlobalLayoutComponent implements OnInit, OnDestroy {
     this.subscribe.unsubscribe();
   }
 
+  getSignInVal(event) {
+    this.loggedIn = event;
+  }
+
   getToolbarVal(event) {
     this.signUp = event;
   }
 
+  getHomePage(event) {
+    this.loggedIn = false;
+  }
 }
