@@ -25,14 +25,15 @@
           </div>
           <div class="content_View">
             <ng-content></ng-content>
-
-          <!-- Just to get the styles right -->
-          <form class="justForStyle" [formGroup]="demoForm">
-            <mat-form-field>
-              <input matInput formControlName="name">
-            </mat-form-field>
-          </form>
-          <!-- upto here -->
+  
+            <!-- Just to get the styles right -->
+            <form class="justForStyle" [FormGroup]="demoForm">
+              <mat-form-field>
+                <input matInput formControlName="name">
+              </mat-form-field>
+            </form>
+            <!-- upto here -->
+          </div>
         </div>
       </div>
     </div>
