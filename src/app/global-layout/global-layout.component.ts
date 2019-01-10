@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SidebarRailService } from '@angular-eBooks/sys-utils';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,6 +13,9 @@ export class GlobalLayoutComponent implements OnInit, OnDestroy {
   showRail;
   loggedIn;
   signUp;
+  demoForm = new FormGroup({
+    name: new FormControl('')
+  });
 
   constructor(private railService: SidebarRailService) {
     this.subscribe = this.railService.openSiderail$.subscribe(bool => {
