@@ -29,8 +29,11 @@
           <input matInput
                  placeholder="Confirm Email"
                  formControlName="confirmEmail"
+                 [errorStateMatcher]="emailErrorMatcher"
                  autocomplete="off">
-          <mat-error *ngIf="signUpForm.controls.confirmEmail.errors">{{getErrorMessage()}}</mat-error>
+          <mat-error *ngIf="signUpForm.controls.confirmEmail.errors || signUpForm.hasError('emailNotMatch')">
+            {{ getCEmailErrorMessage() }}
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
           <input matInput
@@ -48,11 +51,16 @@
           <input matInput
                  placeholder="Confirm Password"
                  formControlName="confirmPassword"
+                 [errorStateMatcher]="passwordErrorMatcher"
                  autocomplete="off">
+          <mat-error *ngIf="signUpForm.controls.confirmPassword.errors || signUpForm.hasError('passwordNotMatch')">
+              {{ getCPassErrorMessage() }}
+          </mat-error>
         </mat-form-field>
         <div class="form_Actions">
           <button mat-flat-button
                   color="primary"
+                  [disabled]="!signUpForm.valid"
                   type="submit">Sign Up</button>
           <button mat-flat-button color="accent">Cancel</button>
         </div>

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ShouldHaveSameEmail, ShouldHaveSamePassword } from '@angular-eBooks/sys-utils';
+import {
+  ShouldHaveSameEmail,
+  ShouldHaveSamePassword,
+  CrossFieldErrorMatcher
+} from '@angular-eBooks/sys-utils';
 
 @Component({
   selector: 'eb-sign-up',
@@ -9,6 +13,8 @@ import { ShouldHaveSameEmail, ShouldHaveSamePassword } from '@angular-eBooks/sys
 })
 export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
+  emailErrorMatcher = new CrossFieldErrorMatcher('emailNotMatch');
+  passwordErrorMatcher = new CrossFieldErrorMatcher('passwordNotMatch');
 
   constructor() { }
 
@@ -38,19 +44,24 @@ export class SignUpComponent implements OnInit {
       confirmPassword: new FormControl('', [
         Validators.required
       ])
-    }, { validators: ShouldHaveSameEmail });
+    }, { validators: [ ShouldHaveSameEmail, ShouldHaveSamePassword ] });
   }
 
-  getErrorMessage() {
+  getCEmailErrorMessage(): string {
     const email = this.signUpForm.controls.confirmEmail;
     return email.hasError('required') ? 'Please enter email' :
       email.hasError('email') ? 'Invalid email' : this.signUpForm.errors.emailNotMatch ?
         'Both emails should match' : '';
   }
 
-  onSubmit() {
+  getCPassErrorMessage(): string {
+    const password = this.signUpForm.controls.confirmPassword;
+    return password.hasError('required') ? 'Please enter password' :
+      this.signUpForm.errors.passwordNotMatch ? 'Both passwords should match' : '';
+  }
+
+  onSubmit(): void {
     console.log(this.signUpForm.value);
-    console.log(this.signUpForm);
   }
 
 }
