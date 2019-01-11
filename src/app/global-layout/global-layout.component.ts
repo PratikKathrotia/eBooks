@@ -11,8 +11,6 @@ import { Subscription } from 'rxjs';
 export class GlobalLayoutComponent implements OnInit, OnDestroy {
   subscribe: Subscription;
   showRail;
-  loggedIn;
-  signUp;
   demoForm = new FormGroup({
     name: new FormControl('')
   });
@@ -23,24 +21,10 @@ export class GlobalLayoutComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit() {
-    this.loggedIn = false;
-    this.signUp = false;
-  }
+  ngOnInit() { }
 
   ngOnDestroy() {
     this.subscribe.unsubscribe();
   }
 
-  getSignInVal(event) {
-    this.loggedIn = event;
-  }
-
-  getToolbarVal(event) {
-    this.signUp = event;
-  }
-
-  getHomePage(event) {
-    this.loggedIn = false;
-  }
 }

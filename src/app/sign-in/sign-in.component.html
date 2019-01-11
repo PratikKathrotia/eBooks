@@ -3,32 +3,31 @@
     <div class="signIn_Form_Div">
       <form class="signIn-form" [formGroup]="signInForm">
         <mat-form-field class="signIn_Full_Width">
-          <input matInput placeholder="Username or Email" formControlName="userName" />
+          <input matInput placeholder="Username or Email" formControlName="userName"/>
         </mat-form-field>
         <mat-form-field class="signIn_Full_Width">
-          <input matInput placeholder="Password" formControlName="password" /> 
+          <input matInput placeholder="Password" formControlName="password"/> 
         </mat-form-field>
         <br />
         <a href="#"><small>Forgot Password?</small></a>
         <br />
         <div class="signIn_Button_Div">
           <button mat-raised-button color="primary">Sign In</button>
-          <button mat-raised-button color="accent" (click)="backToPrev()">Cancel</button>
+          <button mat-raised-button color="accent" routerLink="/global/home">Cancel</button>
         </div>
       </form>
     </div>
     <div class="seperation_Div">
-      <div class="line">
-      </div>
+      <div class="line"></div>
       <div class="content">
         New User?
       </div>
-      <div class="line">
-      </div>
+      <div class="line"></div>
     </div>
     <div class="signUp_Div">
-      <button mat-raised-button color="primary" class="signUp_Button" (click)="openSignUp()">Sign Up</button>
+      <button mat-raised-button color="primary" class="signUp_Button" routerLink="/sign-up">Sign Up</button>
     </div>
   </div>
 </div>
+
     

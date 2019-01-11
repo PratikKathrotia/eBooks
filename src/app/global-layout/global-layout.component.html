@@ -1,16 +1,7 @@
 <div class="container">
-  <div *ngIf="signUp || loggedIn" calss="logoPage">
-    <h2>Logo Goes Here</h2>
-    <div class="signUp_Container" *ngIf="signUp">
-      <eb-sign-up></eb-sign-up>
-    </div>
-    <div class="signIn_Container" *ngIf="loggedIn">
-      <eb-sign-in (signUpPage)="getToolbarVal($event)" (prevPage)="getHomePage($event)"></eb-sign-in>
-    </div>
-  </div>
-  <div class="app_Container" *ngIf="!signUp && !loggedIn">
+  <div class="app_Container">
     <div class="app_ToolbarContainer">
-      <eb-toolbar (signUpVal)="getToolbarVal($event)" (signInVal)="getSignInVal($event)"></eb-toolbar>
+      <eb-toolbar></eb-toolbar>
     </div>
     <div class="app_LayoutContainer">
       <div class="layout_SidebarContainer">
@@ -24,7 +15,7 @@
           <eb-action-bar></eb-action-bar>
         </div>
         <div class="content_View">
-          <ng-content></ng-content>
+          <router-outlet></router-outlet>
 
           <!-- Just to get the styles right -->
           <form class="justForStyle" [formGroup]="demoForm">
