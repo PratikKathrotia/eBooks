@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SidebarRailService } from '@angular-eBooks/sys-utils';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -10,33 +11,17 @@ import { Subscription } from 'rxjs';
 export class GlobalLayoutComponent implements OnInit, OnDestroy {
   subscribe: Subscription;
   showRail;
-  loggedIn;
-  signUp;
 
-  constructor(private railService: SidebarRailService) {
+  constructor(private railService: SidebarRailService, private router: Router) {
     this.subscribe = this.railService.openSiderail$.subscribe(bool => {
       this.showRail = bool;
     });
   }
 
-  ngOnInit() {
-    this.loggedIn = false;
-    this.signUp = false;
-  }
+  ngOnInit() { }
 
   ngOnDestroy() {
     this.subscribe.unsubscribe();
   }
 
-  // getSignInVal(event) {
-  //   this.loggedIn = event;
-  // }
-
-  // getToolbarVal(event) {
-  //   this.signUp = event;
-  // }
-
-  // getHomePage(event) {
-  //   this.loggedIn = false;
-  // }
 }

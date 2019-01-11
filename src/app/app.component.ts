@@ -7,11 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'eBooks';
 
   constructor(private router: Router) {}
 
-  ngOnInit() {
-    // this.router.navigate([{ outlets: { globalOutlet: 'home' } }]);
-  }
+  ngOnInit() { }
 }

@@ -13,23 +13,27 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    component: HomeComponent,
-    outlet: 'globalOutlet'
-  },
-  {
     path: 'global',
-    component: GlobalLayoutComponent
+    component: GlobalLayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      }
+    ]
   },
   {
     path: 'sign-in',
-    component: SignInComponent,
-    outlet: 'authOutlet'
+    component: SignInComponent
   },
   {
     path: 'sign-up',
-    component: SignUpComponent,
-    outlet: 'authOutlet'
+    component: SignUpComponent
   }
 ];
 
