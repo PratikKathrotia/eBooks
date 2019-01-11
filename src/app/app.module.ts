@@ -5,6 +5,7 @@ import { UiGlobalModule } from '@angular-eBooks/ui-global';
 import { UiCommonModule } from '@angular-eBooks/ui-common';
 import { UiContentModule } from '@angular-eBooks/ui-content';
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
 
 import { AngularFireModule } from 'angularfire2';
@@ -25,6 +26,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     UiMaterialDesignModule,
     UiCommonModule,
     UiGlobalModule,
