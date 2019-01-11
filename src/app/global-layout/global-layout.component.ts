@@ -28,15 +28,15 @@ export class GlobalLayoutComponent implements OnInit, OnDestroy {
     this.subscribe.unsubscribe();
   }
 
-  getSignInVal(event) {
-    this.loggedIn = event;
-  }
+  // getSignInVal(event) {
+  //   this.loggedIn = event;
+  // }
 
-  getToolbarVal(event) {
-    this.signUp = event;
-  }
+  // getToolbarVal(event) {
+  //   this.signUp = event;
+  // }
 
-  getHomePage(event) {
-    this.loggedIn = false;
-  }
+  // getHomePage(event) {
+  //   this.loggedIn = false;
+  // }
 }

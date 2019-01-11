@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'eb-toolbar',
@@ -11,18 +12,20 @@ export class ToolbarComponent implements OnInit {
 
   loggedIn;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.loggedIn = false;
   }
 
   openSignIn() {
-    this.signInVal.emit(true);
+    // this.signInVal.emit(true);
+    this.router.navigate([{ outlets: { authOutlet: 'sign-in', globalOutlet: null } }]);
   }
 
   openSignUp() {
-    this.signUpVal.emit(true);
+    // this.signUpVal.emit(true);
+    this.router.navigate([{ outlets: { authOutlet: 'sign-up', globalOutlet: null } }]);
   }
 
 }
