@@ -16,4 +16,8 @@ export class ToolbarComponent implements OnInit {
     this.loggedIn = true;
   }
 
+  openAuthPage(route: string) {
+    this.router.navigate([route]);
+  }
+
 }

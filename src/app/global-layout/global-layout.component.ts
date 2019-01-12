@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SidebarRailService } from '@angular-eBooks/sys-utils';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -15,13 +16,15 @@ export class GlobalLayoutComponent implements OnInit, OnDestroy {
     name: new FormControl('')
   });
 
-  constructor(private railService: SidebarRailService) {
+  constructor(private railService: SidebarRailService, private router: Router) {
     this.subscribe = this.railService.openSiderail$.subscribe(bool => {
       this.showRail = bool;
     });
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.router.navigate(['/global/home']);
+  }
 
   ngOnDestroy() {
     this.subscribe.unsubscribe();
