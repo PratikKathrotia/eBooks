@@ -1,5 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from '@angular-eBooks/sys-utils';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'eb-sign-in',
@@ -9,10 +11,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class SignInComponent implements OnInit {
   signInForm: FormGroup;
 
-  @Output() prevPage = new EventEmitter();
-  @Output() signUpPage = new EventEmitter();
-
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.signInForm = new FormGroup({
@@ -21,11 +20,9 @@ export class SignInComponent implements OnInit {
     });
   }
 
-  backToPrev() {
-    this.prevPage.emit(false);
+  onSubmit() {
+    // this.authService.login(this.signInForm.value);
+    this.router.navigate(['/global/home']);
   }
 
-  openSignUp() {
-    this.signUpPage.emit(true);
-  }
 }
