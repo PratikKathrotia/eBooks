@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validator } from '@angular/forms';
 import { AuthService } from '@angular-eBooks/sys-utils';
 import { Router } from '@angular/router';
 
@@ -10,18 +10,23 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
   signInForm: FormGroup;
+  checked = true;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.signInForm = new FormGroup({
-      userName: new FormControl(''),
-      password: new FormControl('')
+      userName: new FormControl(localStorage.getItem('userName')),
+      password: new FormControl(localStorage.getItem('password')),
+      checked: new FormControl('')
     });
   }
 
-  onSubmit() {
-    // this.authService.login(this.signInForm.value);
+  onSignInSubmit(): void {
+    if (this.signInForm.value.checked) {
+      localStorage.setItem('userName', this.signInForm.value.userName);
+      localStorage.setItem('password', this.signInForm.value.password);
+    }
     this.router.navigate(['/global/home']);
   }
 
