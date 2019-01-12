@@ -1,34 +1,52 @@
 @import '../../styles/global.scss';
 
 .signIn_Container {
+  display: flex;
+  background: $background-color;
+  height: 100vh;
 
   .signIn_Div {
     display: flex;
     flex-direction: column;
-    margin: auto;
-    width: 30%;
+    background: white;
+    margin: 30 * $px auto;
+    height: 527 * $px;
+    width: 400 * $px;
     -moz-box-shadow: 2 * $px 2 * $px 2 * $px 2 * $px #ccc;
     -webkit-box-shadow: 2 * $px 2 * $px 2 * $px 2 * $px #ccc;
     box-shadow: 2 * $px 2 * $px 2 * $px 2 * $px #ccc;
     border-radius: 4 * $px;
+    padding: 20 * $px;
+    box-sizing: border-box;
+
+    .signIn_Header { 
+      h2 {
+        text-align: center;
+      }
+    }
 
     .signIn_Form_Div {
       margin: 20 * $px auto;
-      width: 81%;
+      width: 100%;
       
       .signIn_Full_Width {
         width: 100%;
       }
 
+      .remember_Sign_In_Details {
+        margin: 20 * $px 0 * $px 0 * $px 0 * $px;
+      }
+
       .signIn_Button_Div {
         display: flex;
         justify-content: space-between;
-        padding: 10 * $px 15 * $px;
+        padding: 5 * $px 0 * $px 10 * $px 0 * $px;
         margin: 30 * $px 0 * $px 0 * $px 0 * $px;
       }
 
       button {
         cursor: pointer;
+        width: 36%;
       }
 
     }
@@ -39,7 +57,7 @@
       justify-content: stretch;
 
       .content {
-        width: 100%;
+        width: 90%;
         text-align: center;
         color: rgb(129, 123, 123);
       }
@@ -52,8 +70,8 @@
     }
 
     .signUp_Div {
-      margin: 30 * $px auto 40 * $px auto;
-      width: 81%;
+      margin: 30 * $px 0 * $px 30 * $px 0 * $px;
+      width: 100%;
       display: flex;
       justify-content: center;
 

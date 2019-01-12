@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validator } from '@angular/forms';
 
 @Component({
   selector: 'eb-sign-in',
@@ -8,6 +8,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class SignInComponent implements OnInit {
   signInForm: FormGroup;
+  checked = true;
 
   @Output() prevPage = new EventEmitter();
   @Output() signUpPage = new EventEmitter();
@@ -16,9 +17,17 @@ export class SignInComponent implements OnInit {
 
   ngOnInit() {
     this.signInForm = new FormGroup({
-      userName: new FormControl(''),
-      password: new FormControl('')
+      userName: new FormControl(localStorage.getItem('userName')),
+      password: new FormControl(localStorage.getItem('password')),
+      checked: new FormControl('')
     });
+  }
+
+  onSignInSubmit(): void {
+    if (this.signInForm.value.checked) {
+      localStorage.setItem('userName', this.signInForm.value.userName);
+      localStorage.setItem('password', this.signInForm.value.password);
+    }
   }
 
   backToPrev() {
