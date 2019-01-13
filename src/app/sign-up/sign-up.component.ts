@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
+import { Router } from '@angular/router';
+import { ItemService } from '../services/item.service';
+
 import {
   ShouldHaveSameEmail,
   ShouldHaveSamePassword,
@@ -9,16 +14,23 @@ import {
 @Component({
   selector: 'eb-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  styleUrls: ['./sign-up.component.scss'],
+  providers: [ AngularFireAuth ]
 })
 export class SignUpComponent implements OnInit {
+  hide = true;
+  hideConfirmPassword = true;
   signUpForm: FormGroup;
   emailErrorMatcher = new CrossFieldErrorMatcher('emailNotMatch');
   passwordErrorMatcher = new CrossFieldErrorMatcher('passwordNotMatch');
 
-  constructor() { }
+  constructor(private afAuth: AngularFireAuth, private route: Router,
+     private itemsService: ItemService) { }
 
   ngOnInit() {
+    this.itemsService.getIems().subscribe(items => {
+      console.log(items);
+    });
     this.signUpForm = new FormGroup({
       firstName: new FormControl('', [
         Validators.required
@@ -47,6 +59,16 @@ export class SignUpComponent implements OnInit {
     }, { validators: [ ShouldHaveSameEmail, ShouldHaveSamePassword ] });
   }
 
+  signUp() {
+    this.afAuth.auth.createUserWithEmailAndPassword(
+      this.signUpForm.value.email, this.signUpForm.value.password
+    ).then(success => {
+      this.route.navigate(['/global/home']);
+    }).catch(error => {
+      console.log('This' + error);
+    });
+  }
+
   getCEmailErrorMessage(): string {
     const email = this.signUpForm.controls.confirmEmail;
     return email.hasError('required') ? 'Please enter email' :
@@ -61,7 +83,7 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.signUpForm.value);
+    this.signUp();
   }
 
 }

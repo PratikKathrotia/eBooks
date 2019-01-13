@@ -7,6 +7,7 @@ import { UiContentModule } from '@angular-eBooks/ui-content';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
+import { ItemService } from './services/item.service';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -34,7 +35,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     AngularFireModule.initializeApp(environment.frebaseConfig),
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
