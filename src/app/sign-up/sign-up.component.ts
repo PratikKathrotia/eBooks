@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import {
   ShouldHaveSameEmail,
   ShouldHaveSamePassword,
@@ -9,14 +11,15 @@ import {
 @Component({
   selector: 'eb-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  styleUrls: ['./sign-up.component.scss'],
+  providers: [ AngularFireAuth ]
 })
 export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
   emailErrorMatcher = new CrossFieldErrorMatcher('emailNotMatch');
   passwordErrorMatcher = new CrossFieldErrorMatcher('passwordNotMatch');
 
-  constructor() { }
+  constructor(private afAuth: AngularFireAuth, private router: Router) { }
 
   ngOnInit() {
     this.signUpForm = new FormGroup({
@@ -61,7 +64,14 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.signUpForm.value);
+    this.afAuth.auth.createUserWithEmailAndPassword(
+      this.signUpForm.value['email'],
+      this.signUpForm.value['password']
+    ).then(success => {
+        this.router.navigate(['/global/home']);
+    }).catch(error => {
+        console.log(error);
+    });
   }
 
 }

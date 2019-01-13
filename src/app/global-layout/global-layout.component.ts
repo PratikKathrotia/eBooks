@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'eb-global-layout',
   templateUrl: './global-layout.component.html',
-  styleUrls: ['./global-layout.component.scss']
+  styleUrls: ['./global-layout.component.scss'],
 })
 export class GlobalLayoutComponent implements OnInit, OnDestroy {
   subscribe: Subscription;
@@ -16,7 +16,9 @@ export class GlobalLayoutComponent implements OnInit, OnDestroy {
     name: new FormControl('')
   });
 
-  constructor(private railService: SidebarRailService, private router: Router) {
+  constructor(
+    private railService: SidebarRailService,
+    private router: Router) {
     this.subscribe = this.railService.openSiderail$.subscribe(bool => {
       this.showRail = bool;
     });
