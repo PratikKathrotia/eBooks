@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { AppComponent } from './app.component';
 import { GlobalLayoutComponent } from './global-layout/global-layout.component';
@@ -32,7 +33,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     UiGlobalModule,
     UiContentModule,
     AngularFireModule.initializeApp(environment.frebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

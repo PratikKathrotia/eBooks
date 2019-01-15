@@ -10,19 +10,27 @@
                  placeholder="Firstname"
                  formControlName="firstName"
                  autocomplete="off">
+          <mat-error *ngIf="signUpForm.controls.firstName.errors">
+            {{ getFnErrorMsg() }}
+          </mat-error>
         </mat-form-field>
         <mat-form-field>
           <input matInput
                  placeholder="Lastname"
                  formControlName="lastName"
                  autocomplete="off">
+          <mat-error *ngIf="signUpForm.controls.lastName.errors">
+            {{ getLnErrorMsg() }}
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
           <input matInput
                  placeholder="Email"
                  formControlName="email"
                  autocomplete="off">
-          
+          <mat-error *ngIf="signUpForm.controls.email.errors">
+            {{ getEmailErrorMsg() }}
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
           <input matInput
@@ -39,12 +47,18 @@
                  placeholder="Username"
                  formControlName="userName"
                  autocomplete="off">
+          <mat-error *ngIf="signUpForm.controls.userName.errors">
+            {{ getUserErrorMsg() }}
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
           <input matInput type="password"
                  placeholder="Password"
                  formControlName="password"
                  autocomplete="off">
+          <mat-error *ngIf="signUpForm.controls.password.errors">
+            {{ getPasswordErrorMsg() }}
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
           <input matInput type="password"
