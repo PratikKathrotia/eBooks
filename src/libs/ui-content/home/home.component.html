@@ -1,7 +1,14 @@
-<button mat-button color="primary">Basic</button>
-<button mat-raised-button color="primary">Raised</button>
-<button mat-stroked-button color="primary">Stroked</button>
-<button mat-flat-button color="primary">Flat</button>
+<div *ngIf="!users">
+  <mat-spinner [diameter]="50"></mat-spinner>
+</div>
+<div>
+  <ol>
+    <li *ngFor="let user of users">
+      <h3>{{ user?.firstName }} {{ user?.lastName }}</h3>
+      <span>{{ user?.email }}</span>
+    </li>
+  </ol>
+</div>
 
 <h1>Pratik Kathrotia (h1)</h1>
 <h2>Pratik Kathrotia (h2)</h2>
@@ -14,15 +21,3 @@
 <strong>Pratik Kathrotia (strong)</strong>
 <br>
 <mat-icon>home</mat-icon>
-
-<!-- <form class="justForStyle">
-  <mat-form-field>
-    <input matInput placeholder="Favorite food" autocomplete="off">
-  </mat-form-field>
-</form> -->
-
-<div class="saperator">
-  <div class="line1"></div>
-  <div class="content">New User</div>
-  <div class="line2"></div>
-</div>

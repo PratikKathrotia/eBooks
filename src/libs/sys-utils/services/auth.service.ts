@@ -20,14 +20,10 @@ export class AuthService {
   }
 
   newUser(email: string, password: string): any {
-    this.afAuth.auth.createUserWithEmailAndPassword(
+    return this.afAuth.auth.createUserWithEmailAndPassword(
       email,
       password
-    ).then(success => {
-      this.userExist = true;
-    }).catch(error => {
-      return error;
-    });
+    );
   }
 
   login(email: string, password: string): any {

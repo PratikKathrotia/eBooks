@@ -5,7 +5,9 @@ import {
   ShouldHaveSamePassword,
   CrossFieldErrorMatcher
 } from '@angular-eBooks/sys-utils';
-import { AuthService } from '@angular-eBooks/sys-utils';
+import { AuthService, UserService, IUser } from '@angular-eBooks/sys-utils';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'eb-sign-up',
@@ -17,8 +19,16 @@ export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
   emailErrorMatcher = new CrossFieldErrorMatcher('emailNotMatch');
   passwordErrorMatcher = new CrossFieldErrorMatcher('passwordNotMatch');
+  errorMsg: string;
+  hide: boolean = true;
+  hideConPass: boolean = true;
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private afAuth: AngularFireAuth,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.signUpForm = new FormGroup({
@@ -81,7 +91,7 @@ export class SignUpComponent implements OnInit {
     const password = this.signUpForm.controls.password;
     return password.hasError('required') ? 'Please enter password' :
       password.hasError('pattern') ?
-        'Password must be between 6 and 10 digits long and include at least one numeric digit' : '';
+        'Password must be between 6 and 10 digits long.' : '';
   }
 
   getCPassErrorMessage(): string {
@@ -94,7 +104,19 @@ export class SignUpComponent implements OnInit {
     this.authService.newUser(
       this.signUpForm.value['email'],
       this.signUpForm.value['password']
-    );
+    ).then((success: any) => {
+      const tempUser: IUser = {
+        firstName: this.signUpForm.value.firstName,
+        lastName: this.signUpForm.value.lastName,
+        email: this.signUpForm.value.email,
+        uid: this.afAuth.auth.currentUser.uid
+      };
+      this.userService.addUser(tempUser);
+      localStorage.setItem('current_User', this.afAuth.auth.currentUser.uid);
+      this.router.navigate(['/global/home']);
+    }).catch((error: string) => {
+      this.errorMsg = error;
+    });
   }
 
 }
