@@ -4,6 +4,7 @@
       <h2>Logo Goes Here</h2>
     </div>
     <div class="signUp_Content">
+      <div class="signUp_Error_Message_Box" *ngIf="errorMessage">{{errorMessage}}</div>
       <form class="form_User" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
           <input matInput

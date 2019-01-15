@@ -6,7 +6,7 @@ import {
 } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User } from '../interfaces';
+import { User } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +34,9 @@ export class UserService {
 
   getUsers() {
     return this.users;
+  }
+
+  addUser(user: User) {
+    this.usersCollection.add(user);
   }
 }

@@ -30,6 +30,14 @@
       display: flex;
       flex-direction: column;
 
+      .signUp_Error_Message_Box {
+        background: rgb(245, 225, 225);
+        color: red;
+        border-radius: 4 * $px;
+        padding: 3 * $px;
+        margin-bottom: 10 * $px;
+      }
+
       .form_User {
         display: flex;
         justify-content: space-between;

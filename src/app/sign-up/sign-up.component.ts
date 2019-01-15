@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { UserService } from '../../libs/sys-utils/services/user.service';
+import { User } from '../../libs/sys-utils/interfaces/user.interface';
 import {
   ShouldHaveSameEmail,
   ShouldHaveSamePassword,
@@ -18,8 +20,17 @@ export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
   emailErrorMatcher = new CrossFieldErrorMatcher('emailNotMatch');
   passwordErrorMatcher = new CrossFieldErrorMatcher('passwordNotMatch');
+  user: User = {
+    uid: '',
+    firstName: '',
+    lastName: '',
+    email: ''
+  };
+  errorMessage: string;
 
-  constructor(private afAuth: AngularFireAuth, private router: Router) { }
+  constructor(private afAuth: AngularFireAuth,
+    private router: Router,
+    private userService: UserService) { }
 
   ngOnInit() {
     this.signUpForm = new FormGroup({
@@ -68,9 +79,16 @@ export class SignUpComponent implements OnInit {
       this.signUpForm.value['email'],
       this.signUpForm.value['password']
     ).then(success => {
+        this.userService.getUsers().subscribe(users => {
+          this.user.uid = this.afAuth.auth.currentUser.uid;
+        });
+        this.user.firstName = this.signUpForm.value.firstName,
+        this.user.lastName = this.signUpForm.value.lastName,
+        this.user.email = this.signUpForm.value.email;
+        this.userService.addUser(this.user);
         this.router.navigate(['/global/home']);
     }).catch(error => {
-        console.log(error);
+        this.errorMessage = error;
     });
   }
 
