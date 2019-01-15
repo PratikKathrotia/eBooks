@@ -1,25 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
 import {
   ShouldHaveSameEmail,
   ShouldHaveSamePassword,
   CrossFieldErrorMatcher
 } from '@angular-eBooks/sys-utils';
+import { AuthService, UserService, IUser } from '@angular-eBooks/sys-utils';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'eb-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
-  providers: [ AngularFireAuth ]
+  providers: [ AuthService ]
 })
 export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
   emailErrorMatcher = new CrossFieldErrorMatcher('emailNotMatch');
   passwordErrorMatcher = new CrossFieldErrorMatcher('passwordNotMatch');
+  errorMsg: string;
+  hide: boolean = true;
+  hideConPass: boolean = true;
 
-  constructor(private afAuth: AngularFireAuth, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private afAuth: AngularFireAuth,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.signUpForm = new FormGroup({
@@ -42,12 +51,28 @@ export class SignUpComponent implements OnInit {
       ]),
       password: new FormControl('', [
         Validators.required,
-        Validators.minLength(6)
+        Validators.pattern('^(?=.*\d).{6,10}$')
       ]),
       confirmPassword: new FormControl('', [
         Validators.required
       ])
     }, { validators: [ ShouldHaveSameEmail, ShouldHaveSamePassword ] });
+  }
+
+  getFnErrorMsg(): string {
+    const fn = this.signUpForm.controls.firstName;
+    return fn.hasError('required') ? 'Please enter firstname' : '';
+  }
+
+  getLnErrorMsg(): string {
+    const ln = this.signUpForm.controls.lastName;
+    return ln.hasError('required') ? 'Please enter lastname' : '';
+  }
+
+  getEmailErrorMsg(): string {
+    const email = this.signUpForm.controls.email;
+    return email.hasError('required') ? 'Please enter firstname' :
+      email.hasError('email') ? 'Please enter valid email' : '';
   }
 
   getCEmailErrorMessage(): string {
@@ -57,6 +82,18 @@ export class SignUpComponent implements OnInit {
         'Both emails should match' : '';
   }
 
+  getUserErrorMsg(): string {
+    const userName = this.signUpForm.controls.userName;
+    return userName.hasError('required') ? 'Please enter username' : '';
+  }
+
+  getPasswordErrorMsg(): string {
+    const password = this.signUpForm.controls.password;
+    return password.hasError('required') ? 'Please enter password' :
+      password.hasError('pattern') ?
+        'Password must be between 6 and 10 digits long.' : '';
+  }
+
   getCPassErrorMessage(): string {
     const password = this.signUpForm.controls.confirmPassword;
     return password.hasError('required') ? 'Please enter password' :
@@ -64,13 +101,21 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.afAuth.auth.createUserWithEmailAndPassword(
+    this.authService.newUser(
       this.signUpForm.value['email'],
       this.signUpForm.value['password']
-    ).then(success => {
-        this.router.navigate(['/global/home']);
-    }).catch(error => {
-        console.log(error);
+    ).then((success: any) => {
+      const tempUser: IUser = {
+        firstName: this.signUpForm.value.firstName,
+        lastName: this.signUpForm.value.lastName,
+        email: this.signUpForm.value.email,
+        uid: this.afAuth.auth.currentUser.uid
+      };
+      this.userService.addUser(tempUser);
+      localStorage.setItem('current_User', this.afAuth.auth.currentUser.uid);
+      this.router.navigate(['/global/home']);
+    }).catch((error: string) => {
+      this.errorMsg = error;
     });
   }
 

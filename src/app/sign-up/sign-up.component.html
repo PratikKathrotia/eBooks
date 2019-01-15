@@ -4,25 +4,36 @@
       <h2>Logo Goes Here</h2>
     </div>
     <div class="signUp_Content">
+      <div class="error_Message" *ngIf="errorMsg">
+        {{ errorMsg }}
+      </div>
       <form class="form_User" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
           <input matInput
                  placeholder="Firstname"
                  formControlName="firstName"
                  autocomplete="off">
+          <mat-error *ngIf="signUpForm.controls.firstName.errors">
+            {{ getFnErrorMsg() }}
+          </mat-error>
         </mat-form-field>
         <mat-form-field>
           <input matInput
                  placeholder="Lastname"
                  formControlName="lastName"
                  autocomplete="off">
+          <mat-error *ngIf="signUpForm.controls.lastName.errors">
+            {{ getLnErrorMsg() }}
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
           <input matInput
                  placeholder="Email"
                  formControlName="email"
                  autocomplete="off">
-          
+          <mat-error *ngIf="signUpForm.controls.email.errors">
+            {{ getEmailErrorMsg() }}
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
           <input matInput
@@ -39,19 +50,29 @@
                  placeholder="Username"
                  formControlName="userName"
                  autocomplete="off">
+          <mat-error *ngIf="signUpForm.controls.userName.errors">
+            {{ getUserErrorMsg() }}
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
-          <input matInput type="password"
+          <input matInput
                  placeholder="Password"
                  formControlName="password"
-                 autocomplete="off">
+                 autocomplete="off"
+                 [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error *ngIf="signUpForm.controls.password.errors">
+            {{ getPasswordErrorMsg() }}
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="formField_FullWidth">
-          <input matInput type="password"
+          <input matInput
                  placeholder="Confirm Password"
                  formControlName="confirmPassword"
                  [errorStateMatcher]="passwordErrorMatcher"
-                 autocomplete="off">
+                 autocomplete="off"
+                 [type]="hideConPass ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hideConPass = !hideConPass">{{hideConPass ? 'visibility_off' : 'visibility'}}</mat-icon>
           <mat-error *ngIf="signUpForm.controls.confirmPassword.errors || signUpForm.hasError('passwordNotMatch')">
               {{ getCPassErrorMessage() }}
           </mat-error>

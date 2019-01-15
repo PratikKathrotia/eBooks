@@ -30,6 +30,14 @@
       display: flex;
       flex-direction: column;
 
+      .error_Message {
+        border-radius: 4 * $px;
+        background: rgb(245, 225, 225);
+        color: rgb(241, 66, 66);
+        padding: 3 * $px;
+        margin: 0 0 10 * $px 0;
+      }
+
       .form_User {
         display: flex;
         justify-content: space-between;

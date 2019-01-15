@@ -1,22 +1,41 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  isLoggedIn = true;
+  userExist =  false;
   redirectUrl: string;
 
-  constructor() { }
+  constructor(
+    private afAuth: AngularFireAuth,
+    private router: Router
+  ) { }
 
-  login(user) {
-    if (user.userName === 'pratik1994') {
-      this.isLoggedIn = true;
-    }
+  isLoggedIn() {
+    return this.userExist;
+  }
+
+  newUser(email: string, password: string): any {
+    return this.afAuth.auth.createUserWithEmailAndPassword(
+      email,
+      password
+    );
+  }
+
+  login(email: string, password: string): any {
+    return this.afAuth.auth.signInWithEmailAndPassword(
+      email,
+      password
+    );
   }
 
   logout(): void {
-    this.isLoggedIn = false;
+    this.afAuth.auth.signOut();
+    this.userExist = false;
   }
 
 }
