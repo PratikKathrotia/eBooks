@@ -1,23 +1,49 @@
-<div *ngIf="!users">
-  <mat-spinner [diameter]="50"></mat-spinner>
-</div>
-<div>
-  <ol>
-    <li *ngFor="let user of users">
-      <h3>{{ user?.firstName }} {{ user?.lastName }}</h3>
-      <span>{{ user?.email }}</span>
-    </li>
-  </ol>
-</div>
 
-<h1>Pratik Kathrotia (h1)</h1>
-<h2>Pratik Kathrotia (h2)</h2>
-<h3>Pratik Kathrotia (h3)</h3>
-<h4>Pratik Kathrotia (h4)</h4>
-<h5>Pratik Kathrotia (h5)</h5>
-<h6>Pratik Kathrotia (h6)</h6>
-<p>Pratik Kathrotia (p)</p>
-<i>Pratik Kathrotia (i)</i><br>
-<strong>Pratik Kathrotia (strong)</strong>
-<br>
-<mat-icon>home</mat-icon>
+<div class="formContainer">
+  <div class="form">
+    <form class="books_Form" [formGroup]="booksForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input matInput placeholder="Title" formControlName="title"/>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Price" formControlName="price"/> 
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="rating" formControlName="rating"/>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="author" formControlName="author"/>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="description" formControlName="description"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="publication" formControlName="publication"/>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="category" formControlName="category"/>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="pages" formControlName="pages"/>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="imageUrl" formControlName="imageUrl"/>
+      </mat-form-field>
+      <div formGroupName="reviews">
+        <mat-form-field>
+          <input matInput placeholder="personName" formControlName="personName"/>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="personRating" formControlName="personRating"/>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput placeholder="reviewDescription" formControlName="reviewDescription"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="signIn_Button_Div">
+        <button mat-raised-button color="primary" type="submit">Sign In</button>
+        <button mat-raised-button color="accent">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
