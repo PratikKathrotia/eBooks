@@ -30,20 +30,24 @@
       <mat-form-field>
         <input matInput placeholder="imageUrl" formControlName="imageUrl"/>
       </mat-form-field>
-      <div formGroupName="reviews">
-        <mat-form-field>
-          <input matInput placeholder="personName" formControlName="personName"/>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="personRating" formControlName="personRating"/>
-        </mat-form-field>
-        <mat-form-field>
-          <textarea matInput placeholder="reviewDescription" formControlName="reviewDescription"></textarea>
-        </mat-form-field>
+      <div formArrayName="reviews">
+        <button mat-raised-button color="accent" (click)="addReview()">Add review</button>
+        <div *ngFor="let review of reviews.controls, let i = index">
+          <div [formGroupName]="i">
+            <mat-form-field>
+              <input matInput placeholder="personName" formControlName="personName"/>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="personRating" formControlName="personRating"/>
+            </mat-form-field>
+            <mat-form-field>
+              <textarea matInput placeholder="reviewDescription" formControlName="reviewDescription"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
       </div>
       <div class="signIn_Button_Div">
-        <button mat-raised-button color="primary" type="submit">Sign In</button>
-        <button mat-raised-button color="accent">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">Add Book</button>
       </div>
     </form>
   </div>

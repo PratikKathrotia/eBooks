@@ -32,11 +32,11 @@ export class UserService {
     );
   }
 
-  getUsers() {
+  getUsers(): Observable<IUser[]> {
     return this.users;
   }
 
-  getIndividualUser(user: IUser) {
+  getIndividualUser(user: IUser): AngularFirestoreDocument<IUser> {
     this.userDoc = this.afStore.doc(`users/${user.id}`);
     return this.userDoc;
   }
