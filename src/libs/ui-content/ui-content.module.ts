@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UiMaterialDesignModule } from '@angular-eBooks/ui-material-design';
 import { UiCommonModule } from '../ui-common/ui-common.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home/home.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
@@ -14,7 +15,9 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
   imports: [
     CommonModule,
     UiMaterialDesignModule,
-    UiCommonModule
+    UiCommonModule,
+    ReactiveFormsModule,
+    UiMaterialDesignModule
   ]
 })
 export class UiContentModule { }
