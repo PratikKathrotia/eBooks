@@ -109,7 +109,8 @@ export class SignUpComponent implements OnInit {
         firstName: this.signUpForm.value.firstName,
         lastName: this.signUpForm.value.lastName,
         email: this.signUpForm.value.email,
-        uid: this.afAuth.auth.currentUser.uid
+        uid: this.afAuth.auth.currentUser.uid,
+        favorites: []
       };
       this.userService.addUser(tempUser);
       localStorage.setItem('current_User', this.afAuth.auth.currentUser.uid);
