@@ -1,38 +1,59 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validator } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validator, FormArray } from '@angular/forms';
+import { BookService, IBook, IBookReview } from '@angular-eBooks/sys-utils';
 
 @Component({
   selector: 'eb-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [ ]
+  providers: [ BookService ]
 })
 export class HomeComponent implements OnInit {
   booksForm: FormGroup;
+  allBooks: IBook[];
 
-  constructor() { }
+  constructor(private bookService: BookService, private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.booksForm = new FormGroup({
-      title: new FormControl(''),
-      price: new FormControl(''),
-      rating: new FormControl(''),
-      author: new FormControl(''),
-      description: new FormControl(''),
-      publication: new FormControl(''),
-      category: new FormControl(''),
-      imageUrl: new FormControl(''),
-      pages: new FormControl(''),
-      reviews: new FormGroup({
-        personName: new FormControl(''),
-        personRating: new FormControl(''),
-        reviewDescription: new FormControl('')
-      })
+    this.booksForm = this.fb.group({
+      title: [''],
+      price: [''],
+      rating: [''],
+      author: [''],
+      description: [''],
+      publication: [''],
+      category: [''],
+      imageUrl: [''],
+      pages: [''],
+      reviews: this.fb.array([
+        this.fb.group({
+          personName: [''],
+          personRating: [''],
+          reviewDescription: ['']
+        })
+      ])
     });
+
+    // this.bookService.getBooks().subscribe(books => {
+    //   this.allBooks = books;
+    // });
+  }
+
+  get reviews() {
+    return this.booksForm.get('reviews') as FormArray;
+  }
+
+  addReview() {
+    this.reviews.push(this.fb.group({
+      personName: [''],
+      personRating: [''],
+      reviewDescription: ['']
+    }));
   }
 
   onSubmit() {
     console.log(this.booksForm.value);
+    // this.bookService.addBook(this.booksForm.value);
   }
 
 }
