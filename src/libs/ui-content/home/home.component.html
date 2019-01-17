@@ -1,10 +1,5 @@
-<div>
-  <ol>
-    <li *ngFor="let book of allBooks">
-      {{ book?.title }}
-    </li>
-  </ol>
-</div>
+<eb-book></eb-book>
+<eb-book-detail></eb-book-detail>
 <div class="formContainer">
   <div class="form">
     <form class="books_Form" [formGroup]="booksForm" (ngSubmit)="onSubmit()">
