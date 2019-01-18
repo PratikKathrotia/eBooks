@@ -15,6 +15,7 @@
           <eb-action-bar></eb-action-bar>
         </div>
         <div class="content_View">
+          <eb-loading-indicator *ngIf="showLoading"></eb-loading-indicator>
           <router-outlet></router-outlet>
 
           <!-- Just to get the styles right -->
