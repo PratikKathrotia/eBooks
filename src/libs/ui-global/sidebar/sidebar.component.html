@@ -4,7 +4,8 @@
        [ngClass]="{'selected': isSelected === item.id}"
        [matTooltip]="item.tooltip"
        matTooltipPosition="after"
-       (click)="selectIcon(item)">
+       (mouseenter)="selectIcon(item)"
+       (mouseleave)="selectIcon(item)">
     <mat-icon color="primary">{{item.icon}}</mat-icon>
   </div>
 </div>
