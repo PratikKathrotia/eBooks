@@ -1,27 +1,32 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SidebarRailService } from '@angular-eBooks/sys-utils';
+import { SidebarRailService, UtilService } from '@angular-eBooks/sys-utils';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'eb-global-layout',
   templateUrl: './global-layout.component.html',
   styleUrls: ['./global-layout.component.scss'],
+  providers: [ UtilService ]
 })
 export class GlobalLayoutComponent implements OnInit, OnDestroy {
-  subscribe: Subscription;
-  showRail;
+  showLoading: boolean;
+  subject = new Subject<any>();
+  showRail: boolean;
   demoForm = new FormGroup({
     name: new FormControl('')
   });
 
   constructor(
     private railService: SidebarRailService,
+    private utilService: UtilService,
     private router: Router) {
-    this.subscribe = this.railService.openSiderail$.subscribe(bool => {
-      this.showRail = bool;
-    });
+    this.railService.openSiderail$.pipe(takeUntil(this.subject))
+    .subscribe(bool => this.showRail = bool);
+    this.utilService.showLoadingIndicator$.pipe(takeUntil(this.subject))
+    .subscribe(bool => this.showLoading = bool);
   }
 
   ngOnInit() {
@@ -29,7 +34,8 @@ export class GlobalLayoutComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscribe.unsubscribe();
+    this.subject.next();
+    this.subject.complete();
   }
 
 }
