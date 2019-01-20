@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./action-bar.component.scss']
 })
 export class ActionBarComponent implements OnInit {
+  itemsInTheCart: number;
 
   constructor() { }
 
   ngOnInit() {
+    this.itemsInTheCart = 2;
   }
 
 }

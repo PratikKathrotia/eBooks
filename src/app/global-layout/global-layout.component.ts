@@ -22,11 +22,12 @@ export class GlobalLayoutComponent implements OnInit, OnDestroy {
   constructor(
     private railService: SidebarRailService,
     private utilService: UtilService,
-    private router: Router) {
+    private router: Router
+  ) {
     this.railService.openSiderail$.pipe(takeUntil(this.subject))
-    .subscribe(bool => this.showRail = bool);
+      .subscribe(bool => this.showRail = bool);
     this.utilService.showLoadingIndicator$.pipe(takeUntil(this.subject))
-    .subscribe(bool => this.showLoading = bool);
+      .subscribe(bool => this.showLoading = bool);
   }
 
   ngOnInit() {
