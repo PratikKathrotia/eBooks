@@ -50,8 +50,7 @@ export class SignUpComponent implements OnInit {
         Validators.required
       ]),
       password: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^(?=.*\d).{6,10}$')
+        Validators.required
       ]),
       confirmPassword: new FormControl('', [
         Validators.required
@@ -91,7 +90,7 @@ export class SignUpComponent implements OnInit {
     const password = this.signUpForm.controls.password;
     return password.hasError('required') ? 'Please enter password' :
       password.hasError('pattern') ?
-        'Password must be between 6 and 10 digits long.' : '';
+        'Password must be between 6 and 12 digits long.' : '';
   }
 
   getCPassErrorMessage(): string {
