@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
 
   onSubmit() {
     console.log(this.booksForm.value);
-    // this.bookService.addBook(this.booksForm.value);
+    this.bookService.addBook(this.booksForm.value);
   }
 
 }
