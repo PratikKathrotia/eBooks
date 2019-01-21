@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-detail.component.scss']
 })
 export class BookDetailComponent implements OnInit {
+  favorite;
 
   constructor() { }
 
   ngOnInit() {
+    this.favorite = true;
+  }
+
+  addFavorite() {
+    this.favorite = !this.favorite;
   }
 
 }

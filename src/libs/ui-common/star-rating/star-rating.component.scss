@@ -1,0 +1,19 @@
+@import 'src/styles/global.scss';
+
+.star_Rating_Container {
+  float: left;
+  display: flex;
+
+  .star_Filled_Icon {
+    color: gold;
+  }
+
+  .star_Empty_Icon {
+    color: grey;
+  }
+
+  .show_Avg_Rating {
+    margin: 0 * $px 10 * $px;
+    width: 22 * $px;
+  }
+}

@@ -22,17 +22,11 @@
 
     .div_To_Add_In_Cart {
       
-      padding-top: 27 * $px;
+      padding: 27 * $px 0 * $px 0 * $px 10 * $px;
       width: 100%;
-      text-align: center;
 
       .button_To_Add_In_Cart {
-        width: 63%;
-      }
-
-      .button_To_Add_In_Favorite {
-        width: 63%;
-        margin-top: 10px;
+        width: 45%;
       }
 
     }
@@ -41,13 +35,19 @@
 
   .book_Content_Div {
 
-    margin: 2px 10px 10px 10px;
+    margin: 0px 0px 10px 10px;
+    
     .about_The_Book {
 
       background-image: url('../../../assets/book_covers/page_Image.jpg');
-      padding: 20px 10px 10px 10px;
+      padding: 20px 20px 10px 20px;
       background-repeat: no-repeat;
       background-size: 100% 100%;
+      min-height: 369px;
+
+      .book_Description {
+        text-align: justify;
+      }
     }
 
     .rating_And_Review_Div {

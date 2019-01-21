@@ -4,7 +4,8 @@
 .mat-button,
 .mat-flat-button,
 .mat-stroked-button,
-.mat-raised-button {
+.mat-raised-button,
+.mat-icon-button {
   font-weight: 500;
   border-radius: 50 * $px;
   line-height: 30 * $px;
