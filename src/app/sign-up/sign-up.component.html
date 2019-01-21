@@ -59,6 +59,7 @@
                  placeholder="Password"
                  formControlName="password"
                  autocomplete="off"
+                 pattern="^(?=.*\d).{6,12}$"
                  [type]="hide ? 'password' : 'text'">
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           <mat-error *ngIf="signUpForm.controls.password.errors">
