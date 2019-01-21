@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   frebaseConfig: {
-    apiKey: 'AIzaSyANzniGBefGUouy74Y7d2JX0_c0inYm3CU',
-    authDomain: 'ebooks-5aae1.firebaseapp.com',
-    databaseURL: 'https://ebooks-5aae1.firebaseio.com',
-    projectId: 'ebooks-5aae1',
-    storageBucket: 'ebooks-5aae1.appspot.com',
-    messagingSenderId: '811077019465'
+    apiKey: 'AIzaSyALNZivXR2_b_HVfMqaSW_cY-9ft6gFCsI',
+    authDomain: 'ebooks-73cfe.firebaseapp.com',
+    databaseURL: 'https://ebooks-73cfe.firebaseio.com',
+    projectId: 'ebooks-73cfe',
+    storageBucket: 'ebooks-73cfe.appspot.com',
+    messagingSenderId: '1047261319133'
   }
 };
 

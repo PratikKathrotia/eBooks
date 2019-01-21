@@ -8,12 +8,12 @@
   padding: 10 * $px 16 * $px;
 
   input {
-    border-bottom: 1px solid $box-shadow-color;
+    border-bottom: 1 * $px solid $box-shadow-color;
     padding: 3px;
     width: 400px;
 
     &:focus {
-      border-bottom: 1px solid #00897b;
+      border-bottom: 1.5 * $px solid #00897b;
     }
 
     &::placeholder {
@@ -23,7 +23,7 @@
 
   .actionbar_Actions {
     button {
-      margin-left: 20 * $px;
+      margin: 0 10 * $px 0 20 * $px;
     }
   }
 }

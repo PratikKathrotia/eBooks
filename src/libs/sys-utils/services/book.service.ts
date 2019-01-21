@@ -37,7 +37,7 @@ export class BookService {
   }
 
   getIndividualBook(book: IBook): AngularFirestoreDocument<IBook> {
-    this.bookDoc = this.afStore.doc(`users/${book.id}`);
+    this.bookDoc = this.afStore.doc(`books/${book.id}`);
     return this.bookDoc;
   }
 

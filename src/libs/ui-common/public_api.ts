@@ -1,4 +1,5 @@
 export * from './ui-common.module';
-export * from './book/book.component';
+export * from './grid-book/grid-book.component';
+export * from './list-book/list-book.component';
 export * from './loading-indicator/loading-indicator.component';
 export * from './star-rating/star-rating.component';

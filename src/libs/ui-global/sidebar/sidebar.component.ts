@@ -21,7 +21,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.isRailShowing = true;
-    this.sidebarService.getSiderailStatus(true);
+    this.sidebarService.getSiderailStatus(false);
   }
 
   selectIcon(item) {
