@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { UiMaterialDesignModule } from '@angular-eBooks/ui-material-design';
 import { BookComponent } from './book/book.component';
 import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
     BookComponent,
-    LoadingIndicatorComponent
+    LoadingIndicatorComponent,
+    StarRatingComponent
   ],
   imports: [
     CommonModule,
@@ -15,7 +17,8 @@ import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator
   ],
   exports: [
     BookComponent,
-    LoadingIndicatorComponent
+    LoadingIndicatorComponent,
+    StarRatingComponent
   ]
 })
 export class UiCommonModule { }
