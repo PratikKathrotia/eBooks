@@ -1,3 +1,18 @@
-<p>
-  grid-book works!
-</p>
+<div class="book_Card">
+  <div class="card_Header">
+    <div class="card_Heading">
+      <h4>{{ book?.title }}</h4>
+    </div>
+    <div class="card_SubHeading">
+      <small>{{ book?.author }}</small>
+    </div>
+  </div>
+  <div class="card_Image">
+    <img [src]="book?.imageUrl">
+  </div>
+  <div class="card_Description">
+    <p>{{ book?.description }}</p>
+  </div>
+  <div class="card_Actions"></div>
+</div>
+
