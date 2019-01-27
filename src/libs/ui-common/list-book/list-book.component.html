@@ -2,4 +2,31 @@
   <div class="book_Img_Div">
     <img src="../../../assets/book_covers/lincoln_and_gettysburg_address.jpg" />
   </div>
+  <div class="book_content_div">
+    <h3>{{book_Title}}</h3>
+    <p class="book_Author"><small>By {{book_Author}}</small></p>
+    <div class="book_Description">{{book_Description}}</div>
+    <p class="book_Price"><b>Price:</b> &nbsp; {{book_Price | currency:USD}}</p>
+    <div class="book_Actions">
+      <eb-star-rating [customer_Reviews]="false"></eb-star-rating>
+      <div class="div_To_Add_In_Cart">
+          <button mat-icon-button color="primary" class="button_To_Add_In_Cart">
+            <mat-icon>add_shopping_cart</mat-icon>
+            Add to Cart
+          </button>
+          <button mat-icon-button color="primary"
+                  class="button_To_Add_In_Favorite"
+                  (click)="addFavorite()" *ngIf="!favorite">
+            <mat-icon>favorite_border</mat-icon>
+            Add to Favorites
+          </button>
+          <button mat-icon-button color="primary"
+                  class="button_To_Remove_Favorite"
+                  (click)="addFavorite()" *ngIf="favorite">
+            <mat-icon>favorite</mat-icon>
+            Remove Favorites
+          </button>
+        </div>
+      </div>
+  </div>
 </div>

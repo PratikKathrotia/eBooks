@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'eb-star-rating',
   templateUrl: './star-rating.component.html',
-  styleUrls: ['./star-rating.component.scss']
+  styleUrls: ['./star-rating.component.scss'],
 })
 export class StarRatingComponent implements OnInit {
+  @Input() customer_Reviews: boolean;
   star_empty_icon = 'star_border';
   star_half_icon = 'star_half';
   star_filled_icon = 'star';

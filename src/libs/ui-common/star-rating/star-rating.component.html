@@ -4,6 +4,8 @@
   {{star_half_icon}}</mat-icon>
 <mat-icon class="star_Empty_Icon" *ngFor="let i of emptyStarArr">{{star_empty_icon}}</mat-icon>
 <p class="show_Avg_Rating">{{averageStarRating}}</p>
+<div class="customer_Revie" *ngIf="customer_Reviews">
 | &nbsp;
 <a href="#" >Customer Reviews.</a>
+</div>
 </div>

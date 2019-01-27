@@ -1,0 +1,50 @@
+@import 'src/styles/global.scss';
+
+.list_Book_Container {
+
+  padding: 10 * $px 10 * $px 10 * $px 0 * $px;
+  display: flex;
+  border-top: 1px solid rgb(141, 138, 138);
+  .book_Img_Div {
+
+    padding: 16 * $px;
+    box-shadow: 2 * $px 2 * $px 2 * $px 2 * $px $box-shadow-color;
+
+    img {
+
+      width: 140 * $px;
+      height: 200 * $px;
+
+    }
+  }
+
+  .book_content_div {
+
+    padding: 0 * $px 20 * $px 10 * $px 20 * $px;
+
+    h3 {
+      cursor: pointer;
+    }
+
+    .book_Author {
+      margin-top: -10px;
+      color: rgb(68, 67, 67);
+    }
+
+    .book_Actions {
+
+      display: flex;
+      flex-direction: column;
+      .div_To_Add_In_Cart {
+      
+        padding: 0 * $px 0 * $px 0 * $px 10 * $px;
+        width: 30%;
+        margin-left: -30 * $px;
+  
+        .button_To_Add_In_Cart {
+          width: 45%;
+        }
+      } 
+    }
+  }
+}
