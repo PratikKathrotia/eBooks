@@ -1,3 +1,32 @@
-<p>
-  grid-book works!
-</p>
+<div class="book_Card"
+     *ngIf="book"
+     (click)="haide()">
+  <div class="card_Header">
+    <div class="card_Heading">
+      <h4>{{ book?.title }}</h4>
+    </div>
+    <div class="card_SubHeading">
+      <small>{{ book?.author }}</small>
+    </div>
+  </div>
+  <div class="card_Image">
+    <img [src]="book?.imageUrl">
+  </div>
+  <div class="card_Actions">
+    <button mat-icon-button color="primary">
+      <mat-icon>add_shopping_cart</mat-icon>
+      Add to Cart
+    </button>
+    <button mat-icon-button color="primary"
+            class="button_To_Add_In_Favorite"
+            (click)="handleFavoriteClick()" *ngIf="!favorite">
+      <mat-icon>favorite_border</mat-icon>
+    </button>
+    <button mat-icon-button color="primary"
+            class="button_To_Remove_Favorite"
+            (click)="handleFavoriteClick()" *ngIf="favorite">
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </div>
+</div>
+
