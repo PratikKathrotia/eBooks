@@ -1,8 +1,12 @@
 @import 'src/styles/global.scss';
 
-.home_Container {
+.grid_View {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 12 * $px 0;
+}
+
+.list_View{
   padding: 12 * $px 0;
 }
