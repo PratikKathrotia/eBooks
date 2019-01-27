@@ -1,22 +1,8 @@
 @import 'src/styles/global.scss';
 
-.formContainer {
-
-  .form {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 30px;
-
-    .books_Form {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      width: 500px;
-
-      mat-form-field {
-        width: 48%;
-      }
-    }
-  }
+.home_Container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 12 * $px 0;
 }

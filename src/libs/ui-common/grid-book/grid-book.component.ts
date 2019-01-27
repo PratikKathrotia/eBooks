@@ -8,10 +8,20 @@ import { IBook } from '@angular-eBooks/sys-utils';
 })
 export class GridBookComponent implements OnInit {
   @Input() book: IBook;
+  favorite: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    this.favorite = false;
+  }
+
+  handleFavoriteClick() {
+    this.favorite = !this.favorite;
+  }
+
+  haide() {
+    console.log(this.book);
   }
 
 }
