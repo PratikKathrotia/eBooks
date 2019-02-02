@@ -29,7 +29,10 @@
       <p class="book_Description">{{book?.description}}</p>
     </div>
     <div class="rating_And_Review_Div">
-      <eb-star-rating></eb-star-rating>
+      <eb-star-rating
+        *ngIf="book?.rating"
+        [customer_Review]="true"
+        [rating]="book?.rating"></eb-star-rating>
     </div>
   </div>
 </div>

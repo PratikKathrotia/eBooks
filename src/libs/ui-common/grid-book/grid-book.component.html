@@ -9,7 +9,8 @@
       <small>{{ book?.author }}</small>
     </div>
   </div>
-  <div class="card_Image">
+  <div class="card_Image"
+       (click)="handleBookClick()">
     <img [src]="book?.imageUrl">
   </div>
   <div class="card_Actions">
