@@ -20,8 +20,4 @@ export class GridBookComponent implements OnInit {
     this.favorite = !this.favorite;
   }
 
-  haide() {
-    console.log(this.book);
-  }
-
 }

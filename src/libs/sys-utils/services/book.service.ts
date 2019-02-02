@@ -4,7 +4,7 @@ import {
   AngularFirestoreCollection,
   AngularFirestoreDocument
 } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { IBook } from '../interfaces/book.interface';
 
@@ -36,9 +36,8 @@ export class BookService {
     return this.books;
   }
 
-  getIndividualBook(book: IBook): AngularFirestoreDocument<IBook> {
-    this.bookDoc = this.afStore.doc(`books/${book.id}`);
-    return this.bookDoc;
+  getIndividualBook(id: string) {
+    return this.afStore.doc(`books/${id}`).get();
   }
 
   addBook(book: IBook) {
