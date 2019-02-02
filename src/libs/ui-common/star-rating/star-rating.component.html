@@ -1,9 +1,11 @@
 <div class="star_Rating_Container">
-<mat-icon class="star_Filled_Icon" *ngFor="let i of arrFilledStar">{{star_filled_icon}}</mat-icon>
-<mat-icon class="star_Filled_Icon" *ngIf = "halfStar">
+  <mat-icon class="star_Filled_Icon" *ngFor="let i of arrFilledStar">{{star_filled_icon}}</mat-icon>
+  <mat-icon class="star_Filled_Icon" *ngIf = "halfStar">
   {{star_half_icon}}</mat-icon>
-<mat-icon class="star_Empty_Icon" *ngFor="let i of emptyStarArr">{{star_empty_icon}}</mat-icon>
-<p class="show_Avg_Rating">{{averageStarRating}}</p>
-| &nbsp;
-<a href="#" >Customer Reviews.</a>
+  <mat-icon class="star_Empty_Icon" *ngFor="let i of emptyStarArr">{{star_empty_icon}}</mat-icon>
+  <p class="show_Avg_Rating">{{ rating }}</p>
+  <div class="customer_Review" *ngIf="customer_Review">
+    | &nbsp;
+    <a href="#" >Customer Reviews.</a>
+  </div>
 </div>

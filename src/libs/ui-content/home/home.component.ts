@@ -10,7 +10,7 @@ import { UtilService } from '@angular-eBooks/sys-utils';
 })
 export class HomeComponent implements OnInit {
   allBooks: IBook[];
-  book: IBook;
+  gridView: boolean;
 
   constructor(
     private bookService: BookService,
@@ -18,10 +18,10 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.gridView = false;
     this.utilService.sendLoadingIndicator(true);
     this.bookService.getBooks().subscribe(books => {
       this.allBooks = books;
-      this.book = this.allBooks[0];
       this.utilService.sendLoadingIndicator(false);
     });
   }
