@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IBook } from '@angular-eBooks/sys-utils';
+import { IBook, UtilService } from '@angular-eBooks/sys-utils';
 
 @Component({
   selector: 'eb-grid-book',
@@ -10,7 +10,7 @@ export class GridBookComponent implements OnInit {
   @Input() book: IBook;
   favorite: boolean;
 
-  constructor() { }
+  constructor(private utilService: UtilService) { }
 
   ngOnInit() {
     this.favorite = false;
@@ -18,10 +18,10 @@ export class GridBookComponent implements OnInit {
 
   handleFavoriteClick() {
     this.favorite = !this.favorite;
-  }
-
-  haide() {
-    console.log(this.book);
+    this.utilService.showSnackBar(
+      this.favorite ? `${this.book.title} added to favorites.` :
+          `${this.book.title} removed from favorites`
+    );
   }
 
 }
