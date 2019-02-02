@@ -13,6 +13,7 @@ import { takeUntil } from 'rxjs/operators';
 export class HomeComponent implements OnInit, OnDestroy {
   allBooks: IBook[];
   subject: Subject<any>;
+  gridView: boolean;
 
   constructor(
     private bookService: BookService,
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subject = new Subject<any>();
+    this.gridView = false;
     this.utilService.sendLoadingIndicator(true);
     this.bookService.getBooks().pipe(takeUntil(this.subject))
     .subscribe(books => {

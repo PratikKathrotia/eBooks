@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from '@angular-eBooks/sys-utils';
 
-import { HomeComponent } from '@angular-eBooks/ui-content';
+import { HomeComponent, BookDetailComponent } from '@angular-eBooks/ui-content';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { GlobalLayoutComponent } from './global-layout/global-layout.component';
@@ -27,6 +27,10 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'book/:id',
+        component: BookDetailComponent
       }
     ]
   },
