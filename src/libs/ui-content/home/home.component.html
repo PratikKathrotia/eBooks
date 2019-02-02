@@ -1,5 +1,10 @@
 <div class="home_Container">
   <!-- <eb-book-detail></eb-book-detail> -->
-  <eb-grid-book *ngFor="let book of allBooks" [book]="book"></eb-grid-book>
+  <div *ngIf="gridView" class="grid_View">
+    <eb-grid-book *ngFor="let book of allBooks" [book]="book"></eb-grid-book>
+  </div>
+  <div *ngIf="!gridView" class="list_View">
+    <eb-list-book *ngFor="let book of allBooks" [book]="book"></eb-list-book>
+  </div>
 </div>
 
