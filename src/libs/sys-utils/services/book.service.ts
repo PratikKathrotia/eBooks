@@ -13,7 +13,7 @@ import { IBook } from '../interfaces/book.interface';
 })
 export class BookService {
   booksCollection: AngularFirestoreCollection<IBook>;
-  bookDoc: AngularFirestoreDocument<IBook>;
+  bookDoc;
   books: Observable<IBook[]>;
 
   constructor(private afStore: AngularFirestore) {
@@ -36,9 +36,15 @@ export class BookService {
     return this.books;
   }
 
-  getIndividualBook(book: IBook): AngularFirestoreDocument<IBook> {
-    this.bookDoc = this.afStore.doc(`books/${book.id}`);
-    return this.bookDoc;
+  getIndividualBook(id: string) {
+    this.bookDoc = this.afStore.doc(`books/${id}`).snapshotChanges().pipe(
+      map(book => {
+        return book.payload.data();
+      })
+    );
+    console.log(id);
+    console.log(this.bookDoc);
+    // return this.bookDoc;
   }
 
   addBook(book: IBook) {

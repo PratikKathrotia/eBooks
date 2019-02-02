@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IBook } from '@angular-eBooks/sys-utils';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'eb-list-book',
@@ -8,15 +9,20 @@ import { IBook } from '@angular-eBooks/sys-utils';
 })
 export class ListBookComponent implements OnInit {
   @Input() book: IBook;
-  favorite;
+  favorite: Boolean;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.favorite = false;
     this.book.description = this.book.description.slice(0, 270) + ' ...';
   }
 
   addFavorite() {
     this.favorite = !this.favorite;
+  }
+
+  handleSelectBook() {
+    this.router.navigate(['global/book', this.book.id]);
   }
 }

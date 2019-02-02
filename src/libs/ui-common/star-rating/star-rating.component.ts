@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./star-rating.component.scss'],
 })
 export class StarRatingComponent implements OnInit {
-  @Input() customer_Reviews: boolean;
+  @Input() customer_Review: boolean;
   @Input() rating: number;
   star_empty_icon = 'star_border';
   star_half_icon = 'star_half';

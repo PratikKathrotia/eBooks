@@ -1,14 +1,14 @@
 <div class="list_Book_Container">
-  <div class="book_Img_Div">
+  <div class="book_Img_Div" (click)="handleSelectBook()">
     <img [src]="book?.imageUrl" />
   </div>
   <div class="book_content_div">
-    <h3>{{ book?.title }}</h3>
+    <h3 class="book_Title" (click)="handleSelectBook()">{{ book?.title }}</h3>
     <p class="book_Author"><small>By {{ book?.author }}</small></p>
     <div class="book_Description">{{ book?.description }}</div>
     <p class="book_Price"><b>Price:</b> &nbsp; {{ book?.price | currency:USD }}</p>
     <div class="book_Actions">
-      <eb-star-rating [customer_Reviews]="false"
+      <eb-star-rating [customer_Review]="false"
                       [rating]="book?.rating"></eb-star-rating>
       <div class="div_To_Add_In_Cart">
           <button mat-icon-button color="primary" class="button_To_Add_In_Cart">

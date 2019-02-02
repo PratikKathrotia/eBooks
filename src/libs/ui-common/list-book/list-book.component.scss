@@ -9,12 +9,10 @@
 
     padding: 16 * $px;
     box-shadow: 2 * $px 2 * $px 2 * $px 2 * $px $box-shadow-color;
-
+    cursor: pointer;
     img {
-
       width: 140 * $px;
       height: 200 * $px;
-
     }
   }
 
@@ -22,8 +20,12 @@
 
     padding: 0 * $px 20 * $px 10 * $px 20 * $px;
 
-    h3 {
+    .book_Title {
       cursor: pointer;
+
+      &:hover {
+        color: rgb(38, 38, 194);
+      }
     }
 
     .book_Author {
