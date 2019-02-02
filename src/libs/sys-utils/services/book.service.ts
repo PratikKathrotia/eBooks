@@ -13,7 +13,7 @@ import { IBook } from '../interfaces/book.interface';
 })
 export class BookService {
   booksCollection: AngularFirestoreCollection<IBook>;
-  bookDoc;
+  bookDoc: AngularFirestoreDocument<IBook>;
   books: Observable<IBook[]>;
 
   constructor(private afStore: AngularFirestore) {
