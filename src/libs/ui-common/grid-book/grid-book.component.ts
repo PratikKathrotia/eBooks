@@ -19,8 +19,8 @@ export class GridBookComponent implements OnInit {
   handleFavoriteClick() {
     this.favorite = !this.favorite;
     this.utilService.showSnackBar(
-      this.favorite ? `${this.book.title} added to favorites.` :
-          `${this.book.title} removed from favorites`
+      this.favorite ? `${this.book.title} added to your favorites.` :
+          `${this.book.title} removed from your favorites`
     );
   }
 

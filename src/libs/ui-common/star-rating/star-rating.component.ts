@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class StarRatingComponent implements OnInit {
   @Input() customer_Review: boolean;
-  @Input() rating: number;
+  @Input() rating: any;
   star_empty_icon = 'star_border';
   star_half_icon = 'star_half';
   star_filled_icon = 'star';
@@ -18,13 +18,15 @@ export class StarRatingComponent implements OnInit {
   remainingArrValue: number;
   arrFilledStar = [];
   emptyStarArr = [];
-
+  ratingNum;
   constructor() { }
 
   ngOnInit() {
-    this.totalStar = 5;
-    this.intRatingNum = Math.floor(this.rating);
-    this.floatRatingNum = parseFloat((this.rating - this.intRatingNum).toFixed(1));
+    this.ratingNum = parseFloat(this.rating);
+    this.ratingNum = (this.ratingNum.toFixed(1));
+    this.totalStar = 5.00;
+    this.intRatingNum = Math.floor(this.ratingNum);
+    this.floatRatingNum = parseFloat((this.ratingNum - this.intRatingNum).toFixed(1));
     this.remainingArrValue = this.totalStar - this.intRatingNum;
     if (0.3 <= this.floatRatingNum && this.floatRatingNum <= 0.7) {
       for (let i = 0; i < this.intRatingNum; i++) {

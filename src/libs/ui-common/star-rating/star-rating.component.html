@@ -3,7 +3,7 @@
   <mat-icon class="star_Filled_Icon" *ngIf = "halfStar">
   {{star_half_icon}}</mat-icon>
   <mat-icon class="star_Empty_Icon" *ngFor="let i of emptyStarArr">{{star_empty_icon}}</mat-icon>
-  <p class="show_Avg_Rating">{{ rating }}</p>
+  <p class="show_Avg_Rating">{{ratingNum}}</p>
   <div class="customer_Review" *ngIf="customer_Review">
     | &nbsp;
     <a href="#" >Customer Reviews.</a>
