@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subject = new Subject<any>();
-    this.gridView = false;
+    this.gridView = true;
     this.utilService.sendLoadingIndicator(true);
     this.bookService.getBooks().pipe(takeUntil(this.subject))
     .subscribe(books => {

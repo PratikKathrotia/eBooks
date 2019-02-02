@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IBook, UtilService } from '@angular-eBooks/sys-utils';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'eb-grid-book',
@@ -10,10 +11,17 @@ export class GridBookComponent implements OnInit {
   @Input() book: IBook;
   favorite: boolean;
 
-  constructor(private utilService: UtilService) { }
+  constructor(
+    private utilService: UtilService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.favorite = false;
+  }
+
+  handleBookClick() {
+    this.router.navigate(['/global/book', this.book.id]);
   }
 
   handleFavoriteClick() {

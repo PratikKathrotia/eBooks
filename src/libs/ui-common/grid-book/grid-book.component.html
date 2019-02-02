@@ -1,6 +1,7 @@
 <div class="book_Card"
      *ngIf="book">
-  <div class="card_Header">
+  <div class="card_Header"
+       (click)="handleBookClick()">
     <div class="card_Heading">
       <h4>{{ book?.title }}</h4>
     </div>

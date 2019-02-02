@@ -15,6 +15,11 @@
 
   .card_Header {
     margin: 0 0 10 * $px 0;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(40, 118, 207);
+    }
 
     .card_Heading {
       
