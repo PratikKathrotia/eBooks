@@ -9,6 +9,8 @@ export class UtilService {
   public showLoadingIndicator$ = this.showLoadingIndicator.asObservable();
   private toggleView = new BehaviorSubject<boolean> (false);
   public toggleViewIndicator = this.toggleView.asObservable();
+  private customerReview = new BehaviorSubject<boolean> (false);
+  public toggleCustomerReview = this.customerReview.asObservable();
 
   constructor(private snackBar: MatSnackBar) { }
 
@@ -30,5 +32,9 @@ export class UtilService {
         verticalPosition: 'top'
       }
     );
+  }
+
+  showCustomerReview(bool: boolean) {
+    this.customerReview.next(bool);
   }
 }

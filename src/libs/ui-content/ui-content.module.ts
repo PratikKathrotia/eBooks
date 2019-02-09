@@ -6,11 +6,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home/home.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { CustomerReviewsComponent } from './customer-reviews/customer-reviews.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    CustomerReviewsComponent
   ],
   imports: [
     CommonModule,

@@ -1,38 +1,46 @@
 <div class="book_Detail_Container">
-  <div class="book_Img">
-    <div class="book_Front_Page">
-      <img [src]="book?.imageUrl" />
+  <div class="book_Detail_Content">
+    <div class="book_Img">
+      <div class="book_Front_Page">
+        <img [src]="book?.imageUrl" />
+      </div>
+      <div class="div_To_Add_In_Cart">
+        <button mat-icon-button color="primary" class="button_To_Add_In_Cart">
+          <mat-icon>add_shopping_cart</mat-icon>
+          Add to Cart
+        </button>
+        <button mat-icon-button color="primary"
+                class="button_To_Add_In_Favorite"
+                (click)="addFavorite()" *ngIf="favorite">
+          <mat-icon>favorite_border</mat-icon>
+          Add to Favorites
+        </button>
+        <button mat-icon-button color="primary"
+                class="button_To_Remove_Favorite"
+                (click)="addFavorite()" *ngIf="!favorite">
+          <mat-icon>favorite</mat-icon>
+          Remove Favorites
+        </button>
+      </div>
     </div>
-    <div class="div_To_Add_In_Cart">
-      <button mat-icon-button color="primary" class="button_To_Add_In_Cart">
-        <mat-icon>add_shopping_cart</mat-icon>
-        Add to Cart
-      </button>
-      <button mat-icon-button color="primary"
-              class="button_To_Add_In_Favorite"
-              (click)="addFavorite()" *ngIf="favorite">
-        <mat-icon>favorite_border</mat-icon>
-        Add to Favorites
-      </button>
-      <button mat-icon-button color="primary"
-              class="button_To_Remove_Favorite"
-              (click)="addFavorite()" *ngIf="!favorite">
-        <mat-icon>favorite</mat-icon>
-        Remove Favorites
-      </button>
+    <div class="book_Content_Div">
+      <div class="about_The_Book">
+        <h2>{{book?.title}}</h2>
+        <p><strong>{{book?.author}}</strong></p>
+        <p class="book_Description">{{book?.description}}</p>
+      </div>
+      <div class="rating_And_Review_Div">
+        <eb-star-rating
+          *ngIf="book?.rating"
+          [customer_Review]="true"
+          [rating]="book?.rating"></eb-star-rating>
+      </div>
     </div>
   </div>
-  <div class="book_Content_Div">
-    <div class="about_The_Book">
-      <h2>{{book?.title}}</h2>
-      <p><strong>{{book?.author}}</strong></p>
-      <p class="book_Description">{{book?.description}}</p>
-    </div>
-    <div class="rating_And_Review_Div">
-      <eb-star-rating
-        *ngIf="book?.rating"
-        [customer_Review]="true"
-        [rating]="book?.rating"></eb-star-rating>
+  <div class="customer_Reviews_Component" *ngIf="more_Review">
+    <p>Customer Reviews</p>
+    <div class="customer_Reviews">
+      <eb-customer-reviews></eb-customer-reviews>
     </div>
   </div>
 </div>

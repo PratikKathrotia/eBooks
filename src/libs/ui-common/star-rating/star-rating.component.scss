@@ -16,4 +16,12 @@
     margin: 0 * $px 10 * $px;
     width: 22 * $px;
   }
+
+  .customer_Review {
+    .customer_Reviews_Link {
+      cursor: pointer;
+      padding: 5 * $px;
+      margin: -24px 0px 0px 9px;;
+    }
+  }
 }
