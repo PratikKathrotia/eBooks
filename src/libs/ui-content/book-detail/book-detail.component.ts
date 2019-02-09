@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BookService, IBook } from '@angular-eBooks/sys-utils';
-import { AngularFirestoreDocument } from '@angular/fire/firestore';
+import { BookService, IBook, UtilService } from '@angular-eBooks/sys-utils';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'eb-book-detail',
@@ -9,20 +10,26 @@ import { AngularFirestoreDocument } from '@angular/fire/firestore';
   styleUrls: ['./book-detail.component.scss']
 })
 export class BookDetailComponent implements OnInit {
-  favorite;
-  book;
+  subject: Subject<any>;
+  favorite: boolean;
+  book: IBook | any;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private bookService: BookService
+    private bookService: BookService,
+    private utilService: UtilService
   ) { }
 
   ngOnInit() {
-    this.book = this.bookService.getIndividualBook(
+    this.subject = new Subject<any>();
+    this.utilService.sendLoadingIndicator(true);
+    this.bookService.getIndividualBook(
       this.activatedRoute.snapshot.params['id']
-    );
-    console.log(this.book);
+    ).pipe(takeUntil(this.subject)).subscribe(comingBook => {
+      this.book = comingBook.data();
+      this.utilService.sendLoadingIndicator(false);
+    });
     this.favorite = true;
   }
 

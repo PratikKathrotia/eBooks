@@ -7,6 +7,8 @@ export class UtilService {
 
   private showLoadingIndicator = new BehaviorSubject<boolean> (false);
   public showLoadingIndicator$ = this.showLoadingIndicator.asObservable();
+  private toggleView = new BehaviorSubject<boolean> (false);
+  public toggleViewIndicator = this.toggleView.asObservable();
 
   constructor(private snackBar: MatSnackBar) { }
 
@@ -14,12 +16,16 @@ export class UtilService {
     this.showLoadingIndicator.next(bool);
   }
 
+  sendToggleViewValue(bool: boolean) {
+    this.toggleView.next(bool);
+  }
+
   showSnackBar(message: string, action?: string) {
     this.snackBar.open(
       message,
       action ? action : null,
       {
-        duration: 3000,
+        duration: 7000,
         horizontalPosition: 'center',
         verticalPosition: 'top'
       }
