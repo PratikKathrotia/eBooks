@@ -17,15 +17,18 @@
     margin: 0 0 10 * $px 0;
     cursor: pointer;
 
-    &:hover {
-      color: #1E90FF;
-    }
-
     .card_Heading {
       
-      h4 {
+      .book_Title {
         text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        font-weight: 600;
         margin: 10 * $px 0 0 0;
+      }
+
+      &:hover {
+        color: #1E90FF;
       }
     }
 
