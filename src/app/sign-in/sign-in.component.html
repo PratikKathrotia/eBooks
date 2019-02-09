@@ -4,22 +4,36 @@
       <h2>Logo Goes Here</h2>
     </div>
     <div class="signIn_Form_Div">
-      <form class="signIn-form" [formGroup]="signInForm" (ngSubmit)="onSignInSubmit()">
+      <form class="signIn-form"
+            [formGroup]="signInForm"
+            (ngSubmit)="onSignInSubmit()">
         <mat-form-field class="signIn_Full_Width">
-          <input matInput placeholder="Email" formControlName="email"/>
+          <input matInput
+                 placeholder="Email"
+                 formControlName="email"/>
         </mat-form-field>
         <mat-form-field class="signIn_Full_Width">
-          <input matInput type="password" placeholder="Password" formControlName="password"/> 
+          <input matInput
+                 type="password"
+                 placeholder="Password"
+                 formControlName="password"/> 
         </mat-form-field>
         <br />
-        <a href="#"><small>Forgot Password?</small></a>
+        <a href="#">
+          <small>Forgot Password?</small>
+        </a>
         <br />
         <div  class="remember_Sign_In_Details">
-          <mat-checkbox color="warn" formControlName="checked">Remember me</mat-checkbox>
+          <mat-checkbox color="warn"
+                        formControlName="checked">Remember me</mat-checkbox>
         </div>
           <div class="signIn_Button_Div">
-          <button mat-raised-button color="primary" type="submit">Sign In</button>
-          <button mat-raised-button color="accent">Cancel</button>
+          <button mat-raised-button
+                  color="primary"
+                  type="submit">Sign In</button>
+          <button mat-raised-button
+                  color="accent"
+                  routerLink="/global/home">Cancel</button>
         </div>
       </form>
     </div>
@@ -31,7 +45,10 @@
       <div class="line"></div>
     </div>
     <div class="signUp_Div">
-      <button mat-raised-button color="primary" class="signUp_Button" routerLink="/sign-up">Sign Up</button>
+      <button mat-raised-button
+              color="primary"
+              class="signUp_Button"
+              routerLink="/sign-up">Sign Up</button>
     </div>
   </div>
 </div>
