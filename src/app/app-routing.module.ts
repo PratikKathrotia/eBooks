@@ -3,7 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from '@angular-eBooks/sys-utils';
 
-import { HomeComponent, BookDetailComponent } from '@angular-eBooks/ui-content';
+import {
+  HomeComponent,
+  BookDetailComponent,
+  FavoriteBooksComponent,
+  PopularBooksComponent,
+  SettingsComponent
+} from '@angular-eBooks/ui-content';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { GlobalLayoutComponent } from './global-layout/global-layout.component';
@@ -25,12 +31,25 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        component: HomeComponent,
-        canActivate: [AuthGuard]
+        component: HomeComponent
       },
       {
         path: 'book/:id',
         component: BookDetailComponent
+      },
+      {
+        path: 'favorites',
+        component: FavoriteBooksComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'popular',
+        component: PopularBooksComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
+        canActivate: [AuthGuard]
       }
     ]
   },

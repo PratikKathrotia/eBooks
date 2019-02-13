@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarRailService } from '@angular-eBooks/sys-utils';
+import { Router } from '@angular/router';
+import {
+  SidebarRailService,
+  SidebarItem
+} from '@angular-eBooks/sys-utils';
 
 @Component({
   selector: 'eb-sidebar',
@@ -7,33 +11,80 @@ import { SidebarRailService } from '@angular-eBooks/sys-utils';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  isSelected = 'item1';
-  isRailShowing;
-  sidebarItems = [
-    {name: 'home', id: 'item1', icon: 'home', tooltip: 'Home', showRail: true},
-    {name: 'books', id: 'item2', icon: 'book', tooltip: 'Books', showRail: true},
-    {name: 'bookmarks', id: 'item3', icon: 'bookmark', tooltip: 'Bookmarks', showRail: false},
-    {name: 'haide', id: 'item4', icon: 'notifications', tooltip: 'Notifications', showRail: true},
-    {name: 'blabla', id: 'item5', icon: 'import_contacts', tooltip: 'Contacts', showRail: false}
-  ];
+  selectedItem = 'item1';
+  isRailShowing: boolean;
+  sidebarItems: SidebarItem[];
 
-  constructor(private sidebarService: SidebarRailService) {}
+  constructor(
+    private sidebarService: SidebarRailService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.isRailShowing = true;
     this.sidebarService.getSiderailStatus(false);
+    this.sidebarItems = [
+      {
+        name: 'home',
+        id: 'item1',
+        icon: 'home',
+        tooltip: 'Home',
+        routeUrl: '/global/home',
+        showRail: false
+      },
+      {
+        name: 'categories',
+        id: 'item2',
+        icon: 'book',
+        tooltip: 'Categories',
+        showRail: true,
+        railItemList: []
+      },
+      {
+        name: 'bookmarks',
+        id: 'item3',
+        icon: 'bookmarks',
+        tooltip: 'Bookmarks',
+        routeUrl: '/global/favorites',
+        showRail: false
+      },
+      {
+        name: 'popular',
+        id: 'item5',
+        icon: 'import_contacts',
+        tooltip: 'Popular',
+        routeUrl: '/global/popular',
+        showRail: false
+      },
+      {
+        name: 'settings',
+        id: 'item4',
+        icon: 'settings',
+        tooltip: 'Settings',
+        routeUrl: '/global/settings',
+        showRail: false
+      },
+    ];
   }
 
-  selectIcon(item) {
-    if (this.isSelected === item.id) {
+  isSelected(item: SidebarItem) {
+    return this.selectedItem === item.id;
+  }
+
+  handleSidebarItemClick(item: SidebarItem) {
+    if (this.selectedItem === item.id) {
       if (item.showRail) {
-        this.sidebarService.getSiderailStatus(this.isRailShowing ? false : true);
-        this.isRailShowing = this.isRailShowing ? false : true;
+        this.sidebarService.getSiderailStatus(!this.isRailShowing);
+        this.isRailShowing = !this.isRailShowing;
       }
     } else {
-      this.isSelected = item.id;
+      this.selectedItem = item.id;
       this.sidebarService.getSiderailStatus(item.showRail);
       this.isRailShowing = item.showRail;
+    }
+
+    if (item.routeUrl) {
+      this.router.navigate([item.routeUrl]);
     }
   }
 
