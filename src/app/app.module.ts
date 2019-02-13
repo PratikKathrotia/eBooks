@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { UiMaterialDesignModule } from '@angular-eBooks/ui-material-design';
 import { UiGlobalModule } from '@angular-eBooks/ui-global';
 import { UiCommonModule } from '@angular-eBooks/ui-common';
@@ -28,6 +29,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     UiMaterialDesignModule,
     UiCommonModule,
     UiGlobalModule,

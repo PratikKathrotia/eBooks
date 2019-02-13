@@ -2,20 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   SidebarRailService,
-  SidebarItem
+  SidebarItem,
+  UtilService
 } from '@angular-eBooks/sys-utils';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'eb-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
+  providers: [ UtilService ]
 })
 export class SidebarComponent implements OnInit {
   selectedItem = 'item1';
   isRailShowing: boolean;
   sidebarItems: SidebarItem[];
+  subject: Subject<any>;
 
   constructor(
+    private utilService: UtilService,
     private sidebarService: SidebarRailService,
     private router: Router
   ) {}
@@ -23,48 +29,12 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     this.isRailShowing = true;
     this.sidebarService.getSiderailStatus(false);
-    this.sidebarItems = [
-      {
-        name: 'home',
-        id: 'item1',
-        icon: 'home',
-        tooltip: 'Home',
-        routeUrl: '/global/home',
-        showRail: false
-      },
-      {
-        name: 'categories',
-        id: 'item2',
-        icon: 'book',
-        tooltip: 'Categories',
-        showRail: true,
-        railItemList: []
-      },
-      {
-        name: 'bookmarks',
-        id: 'item3',
-        icon: 'bookmarks',
-        tooltip: 'Bookmarks',
-        routeUrl: '/global/favorites',
-        showRail: false
-      },
-      {
-        name: 'popular',
-        id: 'item5',
-        icon: 'import_contacts',
-        tooltip: 'Popular',
-        routeUrl: '/global/popular',
-        showRail: false
-      },
-      {
-        name: 'settings',
-        id: 'item4',
-        icon: 'settings',
-        tooltip: 'Settings',
-        routeUrl: '/global/settings',
-        showRail: false
-      },
-    ];
+    this.subject = new Subject<any>();
+    this.utilService.getSidebarItems().pipe(
+      takeUntil(this.subject)
+    ).subscribe(items => {
+      this.sidebarItems = items as SidebarItem[];
+    });
   }
 
   isSelected(item: SidebarItem) {
