@@ -35,7 +35,9 @@ export class BookDetailComponent implements OnInit {
     });
     this.favorite = true;
   }
-
+  GetCustomerReview() {
+    return this.book.reviews;
+  }
   addFavorite() {
     this.favorite = !this.favorite;
   }

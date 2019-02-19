@@ -1,7 +1,14 @@
 <div class="customer_Review_Container">
-  <img src="../../../assets/OtherImages/male_avatar.png" />
-  <p>Name of the Customer goes here.</p>
-  <p>Star goes here, Star number goes here.</p>
-  <p>Customer Reviews goes here.</p>
-  <p>Customer Reviews...</p>
+  <div class="customer_Review" *ngFor="let i of first_Five_Reviews">
+    <div class="person_Name_Avatar">
+      <img class="avatar" src="../../../assets/OtherImages/male_avatar.png" />
+      <p>{{i?.personName}}</p>
+    </div>
+    <eb-star-rating
+    *ngIf="i?.personRating"
+    [customer_Review]="false"
+    [rating]="i?.personRating"></eb-star-rating>
+    <p>{{i?.reviewDescription}}</p>
+  </div>
+  <a href="#">view more</a>
 </div>

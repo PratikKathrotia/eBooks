@@ -1,0 +1,22 @@
+@import 'src/styles/global.scss';
+
+.customer_Review_Container {
+
+  .customer_Review {
+
+    display: flex;
+    flex-direction: column;
+    
+    .person_Name_Avatar {
+      
+      display: flex;
+      flex-direction: row;
+
+      .avatar {
+        height: 36 * $px;
+        width: 36 * $px; 
+        padding-right: 18 * $px
+      }
+    }
+  }
+}
