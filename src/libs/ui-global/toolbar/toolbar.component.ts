@@ -9,12 +9,13 @@ import { AuthService } from '@angular-eBooks/sys-utils';
 })
 export class ToolbarComponent implements OnInit {
 
-  loggedIn: boolean;
-
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
-    this.loggedIn = (localStorage.getItem('current_User')) ? true : false;
+  }
+
+  get isLogin(): boolean {
+    return (localStorage.getItem('current_User')) ? true : false;
   }
 
   openAuthPage(route: string) {
