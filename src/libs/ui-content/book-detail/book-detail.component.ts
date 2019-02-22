@@ -13,13 +13,16 @@ export class BookDetailComponent implements OnInit {
   subject: Subject<any>;
   favorite: boolean;
   book: IBook | any;
+  more_Review: boolean;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private bookService: BookService,
     private utilService: UtilService
-  ) { }
+  ) {
+    this.utilService.toggleCustomerReview.subscribe(bool => this.more_Review = bool);
+  }
 
   ngOnInit() {
     this.subject = new Subject<any>();
@@ -32,7 +35,9 @@ export class BookDetailComponent implements OnInit {
     });
     this.favorite = true;
   }
-
+  GetCustomerReview() {
+    return this.book.reviews;
+  }
   addFavorite() {
     this.favorite = !this.favorite;
   }

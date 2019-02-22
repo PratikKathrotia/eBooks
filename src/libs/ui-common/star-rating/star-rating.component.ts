@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UtilService } from '@angular-eBooks/sys-utils';
 
 @Component({
   selector: 'eb-star-rating',
@@ -18,8 +19,10 @@ export class StarRatingComponent implements OnInit {
   remainingArrValue: number;
   arrFilledStar = [];
   emptyStarArr = [];
+  showReview: boolean = false;
   ratingNum;
-  constructor() { }
+
+  constructor(private utilService: UtilService) { }
 
   ngOnInit() {
     this.ratingNum = parseFloat(this.rating);
@@ -53,4 +56,8 @@ export class StarRatingComponent implements OnInit {
     }
   }
 
+  showCustomerReview() {
+    this.showReview = !this.showReview;
+    this.utilService.showCustomerReview(this.showReview);
+  }
 }

@@ -31,7 +31,7 @@ export class BookService {
       })
     );
   }
-
+  customer_review_arr = ['this is first riview', 'this is second riview', 'this is third riview'];
   getBooks(): Observable<IBook[]> {
     return this.books;
   }
@@ -44,4 +44,7 @@ export class BookService {
     this.booksCollection.add(book);
   }
 
+  getReview() {
+    return this.customer_review_arr;
+  }
 }
