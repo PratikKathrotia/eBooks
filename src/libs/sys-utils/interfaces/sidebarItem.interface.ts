@@ -1,4 +1,4 @@
-import { SideRailItem } from './sideRailItem.interface';
+import { Category } from './Category.interface';
 
 export interface SidebarItem {
   name: string;
@@ -7,5 +7,5 @@ export interface SidebarItem {
   icon: string;
   tooltip: string;
   showRail: boolean;
-  railItemList?: SideRailItem[];
+  railItemList?: Category[];
 }

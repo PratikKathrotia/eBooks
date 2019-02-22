@@ -2,8 +2,11 @@
 
 .siderail {
   padding: 10 * $px;
+  overflow-y: auto;
+  height: 97%;
 
   .siderail_Items {
+
     .siderail_Item {
       width: 128 * $px;
       margin-top: 5 * $px;

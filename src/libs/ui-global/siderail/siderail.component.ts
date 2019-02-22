@@ -1,4 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Category, UtilService } from '@angular-eBooks/sys-utils';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'eb-siderail',
@@ -6,21 +9,22 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./siderail.component.scss']
 })
 export class SiderailComponent implements OnInit, OnDestroy {
-  siderailItems = [
-    {title: 'Lots of Other'},
-    {title: 'other things'},
-    {title: 'things can'},
-    {title: 'can go here'},
-    {title: 'here lots of'},
-    {title: 'Lots of other'},
-    {title: 'other things'},
-    {title: 'things can go'},
-    {title: 'can go here'},
-    {title: 'here here'}
-  ];
-  constructor() {}
+  categories: Category[];
+  subject: Subject<any>;
 
-  ngOnInit() {}
+  constructor(
+    private utilService: UtilService
+  ) {}
+
+  ngOnInit() {
+    this.subject = new Subject<any>();
+    this.utilService.getCategories().pipe(
+      takeUntil(this.subject)
+    ).subscribe(cat => {
+      this.categories = cat as Category[];
+      console.log(this.categories);
+    });
+  }
 
   ngOnDestroy() {}
 

@@ -24,6 +24,12 @@ export class UtilService {
     );
   }
 
+  getCategories() {
+    return this._http.get(
+      `${this.apiService.getMockServerApiUrl()}/categories`
+    );
+  }
+
   sendLoadingIndicator(bool: boolean) {
     this.showLoadingIndicator.next(bool);
   }
