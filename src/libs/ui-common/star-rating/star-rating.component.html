@@ -6,6 +6,6 @@
   <p class="show_Avg_Rating">{{ratingNum}}</p>
   <div class="customer_Review" *ngIf="customer_Review">
     | &nbsp;
-    <a href="#" >Customer Reviews.</a>
+    <p class="customer_Reviews_Link" (click)="showCustomerReview()">Customer Reviews.</p>
   </div>
 </div>
