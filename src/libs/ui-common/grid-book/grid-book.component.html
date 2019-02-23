@@ -22,6 +22,8 @@
     </button>
     <button mat-icon-button color="primary"
             class="button_To_Add_In_Favorite"
+            matTooltip="Add to your favorites"
+            [matTooltipShowDelay]="showDelay.value"
             (click)="handleFavoriteClick()" *ngIf="!favorite">
       <mat-icon>favorite_border</mat-icon>
     </button>
