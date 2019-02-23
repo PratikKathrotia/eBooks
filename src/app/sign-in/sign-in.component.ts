@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
 export class SignInComponent implements OnInit {
   signInForm: FormGroup;
   checked = true;
+  showDelay = new FormControl(1000);
+  error_Message;
 
   constructor(
     private authService: AuthService,
@@ -29,13 +31,18 @@ export class SignInComponent implements OnInit {
   }
 
   onSignInSubmit(): void {
+    if (this.signInForm.value['checked'] === true) {
+      localStorage.setItem('email', this.signInForm.value['email']);
+      localStorage.setItem('password', this.signInForm.value['password']);
+    }
     this.authService.login(
       this.signInForm.value['email'],
       this.signInForm.value['password']
     ).then((success: any) => {
       localStorage.setItem('current_User', this.afAuth.auth.currentUser.uid);
       this.router.navigate(['/global/home']);
-    }).catch((error: any) => console.log(error));
+    }).catch(() => this.error_Message = `Error!: There is no user
+    record corresponding to this identifier. Please check the email or password
+    and try again.`);
   }
-
 }

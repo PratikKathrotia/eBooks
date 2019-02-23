@@ -3,6 +3,9 @@
     <div class="signIn_Header">
       <h2>Logo Goes Here</h2>
     </div>
+    <div class="error_Message">
+      {{error_Message}}
+    </div>
     <div class="signIn_Form_Div">
       <form class="signIn-form"
             [formGroup]="signInForm"
@@ -25,6 +28,9 @@
         <br />
         <div  class="remember_Sign_In_Details">
           <mat-checkbox color="warn"
+                        matTooltip="If this is your personal device 
+                        then only keep your credentials remembered"
+                        [matTooltipShowDelay]="showDelay.value"
                         formControlName="checked">Remember me</mat-checkbox>
         </div>
           <div class="signIn_Button_Div">

@@ -19,8 +19,8 @@
     {
       "name": "bookmarks",
       "id": "item3",
-      "icon": "bookmarks",
-      "tooltip": "Bookmarks",
+      "icon": "favorite",
+      "tooltip": "Favorites",
       "routeUrl": "/global/favorites",
       "showRail": false
     },
