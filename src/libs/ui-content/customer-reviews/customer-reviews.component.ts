@@ -16,13 +16,24 @@ export class CustomerReviewsComponent implements OnInit {
   arrLength;
   ngOnInit() {
     this.reviews = this.bookDetailComponent.GetCustomerReview();
-    if (this.reviews.length <= 5) {
+    if (this.reviews.length <= 10) {
       this.arrLength = this.reviews.length;
     } else {
-      this.arrLength = 5;
+      this.arrLength = 10;
     }
     for (let i = 0; i < this.arrLength; i++) {
       this.first_Five_Reviews.push(this.reviews[i]);
+    }
+  }
+
+  viewMoreReviews() {
+    this.arrLength = this.arrLength + 10;
+    for (let i = this.first_Five_Reviews.length; i < this.arrLength; i++) {
+      if (this.reviews[i]) {
+        this.first_Five_Reviews.push(this.reviews[i]);
+      } else {
+        return;
+      }
     }
   }
 }

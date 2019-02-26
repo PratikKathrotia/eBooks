@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IBook, UtilService } from '@angular-eBooks/sys-utils';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 export class GridBookComponent implements OnInit {
   @Input() book: IBook;
   favorite: boolean;
+  showDelay = new FormControl(500);
 
   constructor(
     private utilService: UtilService,
