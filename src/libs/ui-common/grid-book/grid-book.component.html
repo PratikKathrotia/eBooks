@@ -4,7 +4,7 @@
        (click)="handleBookClick()">
     <div class="card_Heading">
       <p class="book_Title">
-        {{ book?.title }}
+        {{ book?.title | titlecase }}
       </p>
     </div>
     <div class="card_SubHeading">

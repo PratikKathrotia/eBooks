@@ -36,9 +36,8 @@ export class UserService {
     return this.users;
   }
 
-  getIndividualUser(user: IUser): AngularFirestoreDocument<IUser> {
-    this.userDoc = this.afStore.doc(`users/${user.id}`);
-    return this.userDoc;
+  getIndividualUser(userId: string) {
+    return this.afStore.doc(`users/${userId}`).get();
   }
 
   addUser(user: IUser) {

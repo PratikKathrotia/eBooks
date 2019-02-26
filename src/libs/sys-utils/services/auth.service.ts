@@ -7,17 +7,12 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  userExist =  false;
   redirectUrl: string;
 
   constructor(
     private afAuth: AngularFireAuth,
     private router: Router
   ) { }
-
-  isLoggedIn() {
-    return this.userExist;
-  }
 
   newUser(email: string, password: string): any {
     return this.afAuth.auth.createUserWithEmailAndPassword(
@@ -35,7 +30,6 @@ export class AuthService {
 
   logout(): void {
     this.afAuth.auth.signOut();
-    this.userExist = false;
   }
 
 }
