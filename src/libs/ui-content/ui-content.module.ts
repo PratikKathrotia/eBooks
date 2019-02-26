@@ -15,7 +15,7 @@ import { SettingsComponent } from './settings/settings.component';
   declarations: [
     HomeComponent,
     BookDetailComponent,
-    CustomerReviewsComponent
+    CustomerReviewsComponent,
     PopularBooksComponent,
     FavoriteBooksComponent,
     SettingsComponent
