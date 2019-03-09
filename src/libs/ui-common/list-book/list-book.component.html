@@ -3,7 +3,7 @@
     <img [src]="book?.imageUrl" />
   </div>
   <div class="book_content_div">
-    <h3 class="book_Title" (click)="handleSelectBook()">{{ book?.title }}</h3>
+    <h3 class="book_Title" (click)="handleSelectBook()">{{ book?.title | titlecase }}</h3>
     <p class="book_Author"><small>By {{ book?.author }}</small></p>
     <div class="book_Description">{{ book?.description }}</div>
     <p class="book_Price"><b>Price:</b> &nbsp; {{ book?.price | currency:USD }}</p>

@@ -25,7 +25,7 @@ export class ToolbarComponent implements OnInit {
   logout() {
     this.authService.logout();
     localStorage.removeItem('current_User');
-    this.router.navigate(['sign-in']);
+    this.router.navigate(['/global/home']);
   }
 
 }
