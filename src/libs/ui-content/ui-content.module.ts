@@ -10,6 +10,7 @@ import { CustomerReviewsComponent } from './customer-reviews/customer-reviews.co
 import { PopularBooksComponent } from './popular-books/popular-books.component';
 import { FavoriteBooksComponent } from './favorite-books/favorite-books.component';
 import { SettingsComponent } from './settings/settings.component';
+import { CategoryBooksComponent } from './category-books/category-books.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SettingsComponent } from './settings/settings.component';
     CustomerReviewsComponent,
     PopularBooksComponent,
     FavoriteBooksComponent,
-    SettingsComponent
+    SettingsComponent,
+    CategoryBooksComponent
   ],
   imports: [
     CommonModule,
