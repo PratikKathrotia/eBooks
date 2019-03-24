@@ -1,7 +1,8 @@
 <div class="siderail">
   <div class="siderail_Items">
     <div class="siderail_Item"
-         *ngFor="let category of categories, let i = index">
+         *ngFor="let category of categories, let i = index"
+         (click)="handleCategoryClick(category)">
       {{ category?.title }}
     </div>
   </div>

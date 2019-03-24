@@ -13,6 +13,7 @@ import {
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { GlobalLayoutComponent } from './global-layout/global-layout.component';
+import { CategoryBooksComponent } from 'src/libs/ui-content/category-books/category-books.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'book/:id',
         component: BookDetailComponent
+      },
+      {
+        path: 'category/:name',
+        component: CategoryBooksComponent
       },
       {
         path: 'favorites',
