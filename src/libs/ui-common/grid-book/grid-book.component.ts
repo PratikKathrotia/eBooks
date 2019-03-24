@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IBook, UtilService } from '@angular-eBooks/sys-utils';
+import { IBook, UtilService, UserService } from '@angular-eBooks/sys-utils';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -15,6 +15,7 @@ export class GridBookComponent implements OnInit {
 
   constructor(
     private utilService: UtilService,
+    private userService: UserService,
     private router: Router
   ) { }
 
