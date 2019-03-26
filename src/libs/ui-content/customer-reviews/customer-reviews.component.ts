@@ -14,10 +14,12 @@ export class CustomerReviewsComponent implements OnInit {
   reviews;
   first_Five_Reviews = [];
   arrLength;
+  showViewMore: boolean = true;
   ngOnInit() {
     this.reviews = this.bookDetailComponent.GetCustomerReview();
     if (this.reviews.length <= 10) {
       this.arrLength = this.reviews.length;
+      this.showViewMore = !this.showViewMore;
     } else {
       this.arrLength = 10;
     }
@@ -32,6 +34,7 @@ export class CustomerReviewsComponent implements OnInit {
       if (this.reviews[i]) {
         this.first_Five_Reviews.push(this.reviews[i]);
       } else {
+        this.showViewMore = !this.showViewMore;
         return;
       }
     }

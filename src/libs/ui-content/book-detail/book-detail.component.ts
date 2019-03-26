@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BookService, IBook, UtilService } from '@angular-eBooks/sys-utils';
 import { takeUntil } from 'rxjs/operators';
@@ -9,23 +9,23 @@ import { Subject } from 'rxjs';
   templateUrl: './book-detail.component.html',
   styleUrls: ['./book-detail.component.scss']
 })
-export class BookDetailComponent implements OnInit {
-  subject: Subject<any>;
+export class BookDetailComponent implements OnInit, OnDestroy {
+  subject: Subject<any> = new Subject<any>();
   favorite: boolean;
   book: IBook | any;
   more_Review: boolean;
-
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private bookService: BookService,
     private utilService: UtilService
   ) {
-    this.utilService.toggleCustomerReview.subscribe(bool => this.more_Review = bool);
+    this.utilService.toggleCustomerReview.pipe(
+      takeUntil(this.subject)
+    ).subscribe(bool => this.more_Review = bool);
   }
 
   ngOnInit() {
-    this.subject = new Subject<any>();
     this.utilService.sendLoadingIndicator(true);
     this.bookService.getIndividualBook(
       this.activatedRoute.snapshot.params['id']
@@ -35,6 +35,13 @@ export class BookDetailComponent implements OnInit {
     });
     this.favorite = true;
   }
+
+  ngOnDestroy() {
+    this.utilService.showCustomerReview(false);
+    this.subject.next();
+    this.subject.complete();
+  }
+
   GetCustomerReview() {
     return this.book.reviews;
   }
