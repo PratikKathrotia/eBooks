@@ -20,6 +20,7 @@ export class ListBookComponent implements OnInit {
 
   addFavorite() {
     this.favorite = !this.favorite;
+    alert(localStorage.getItem('current_User'));
     this.utilService.showSnackBar(
       this.favorite ? `${this.book.title} added to your favorites.` :
       `${this.book.title} removed from your favorites`
