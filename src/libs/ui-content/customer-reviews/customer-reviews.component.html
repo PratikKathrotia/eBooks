@@ -10,5 +10,5 @@
     [rating]="i?.personRating"></eb-star-rating>
     <p>{{i?.reviewDescription}}</p>
   </div>
-  <p *ngIf="show_ViewMore" (click)="viewMoreReviews()">view more</p>
+  <a href="javascript:void(0)" (click)="viewMoreReviews()" *ngIf="showViewMore">view more</a>
 </div>
