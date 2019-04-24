@@ -111,7 +111,7 @@ export class SignUpComponent implements OnInit {
         uid: this.afAuth.auth.currentUser.uid,
         favorites: []
       };
-      this.userService.addUser(tempUser);
+      this.userService.setUser(tempUser);
       localStorage.setItem('current_User', this.afAuth.auth.currentUser.uid);
       this.router.navigate(['/global/home']);
     }).catch((error: string) => {

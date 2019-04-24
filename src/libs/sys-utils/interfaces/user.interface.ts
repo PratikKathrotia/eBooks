@@ -6,5 +6,5 @@ export interface IUser {
   firstName: string;
   lastName: string;
   email: string;
-  favorites: IBook[];
+  favorites: string[];
 }

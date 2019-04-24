@@ -40,7 +40,11 @@ export class UserService {
     return this.afStore.doc(`users/${userId}`).get();
   }
 
-  addUser(user: IUser) {
-    this.usersCollection.add(user);
+  setUser(user: IUser) {
+    this.usersCollection.doc(`${user.uid}`).set(user);
+  }
+
+  addToFavorite(user: IUser) {
+    this.usersCollection.doc(`${user.uid}`).set(user);
   }
 }
