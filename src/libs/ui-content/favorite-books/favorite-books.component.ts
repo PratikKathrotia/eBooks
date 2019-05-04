@@ -19,6 +19,9 @@ export class FavoriteBooksComponent implements OnInit, OnDestroy {
     private utilService: UtilService
   ) { }
 
+  userBookIds: string[];
+  user;
+
   ngOnInit() {
     this.userBooks = [];
     this.subject = new Subject<any>();
@@ -30,9 +33,10 @@ export class FavoriteBooksComponent implements OnInit, OnDestroy {
       this.userService.getIndividualUser(
         localStorage.getItem('current_User')
       ).pipe(takeUntil(this.subject)).subscribe(user => {
-        const userBookIds: string[] = user.data()['favoriteBooks'];
+        this.user = user.data();
+        this.userBookIds = user.data()['favorites'];
         this.allBooks.forEach(book => {
-          if (userBookIds.includes(book.id)) {
+          if (this.userBookIds.includes(book.id)) {
             this.userBooks.push(book);
           }
         });
@@ -41,7 +45,19 @@ export class FavoriteBooksComponent implements OnInit, OnDestroy {
     });
   }
 
+  isFavoriteState(bookDetails) {
+    if (!bookDetails.flag) {
+      this.userBooks.splice(
+        this.userBooks.map(function(x) {return x.id; }).indexOf(bookDetails.bookId)
+      , 1);
+      this.userBookIds.splice(this.userBookIds.indexOf(bookDetails.bookId), 1);
+      this.user['favorites'] = this.userBookIds;
+    }
+  }
   ngOnDestroy() {
+    if (this.user) {
+      this.userService.setUser(this.user);
+    }
     this.subject.next();
     this.subject.complete();
   }

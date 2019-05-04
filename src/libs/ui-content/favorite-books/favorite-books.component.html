@@ -1,3 +1,6 @@
 <div class="grid_View">
-  <eb-grid-book *ngFor="let book of userBooks" [book]="book"></eb-grid-book>
+  <eb-grid-book *ngFor="let book of userBooks"
+                [book]="book"
+                [isFavorited]="true"
+                (favoriteState)="isFavoriteState($event)"></eb-grid-book>
 </div>
