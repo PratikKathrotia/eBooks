@@ -32,7 +32,7 @@ export class CustomerReviewsComponent implements OnInit {
     this.arrLength = this.arrLength + 10;
     if ((this.reviews.length === this.arrLength) ||
     (this.reviews.length < this.arrLength)) {
-      this.show_ViewMore = false;
+      this.showViewMore = false;
     }
     for (let i = this.first_Five_Reviews.length; i < this.arrLength; i++) {
       if (this.reviews[i]) {
