@@ -25,11 +25,12 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     private utilService: UtilService,
     private userService: UserService
   ) {
-    this.utilService.toggleCustomerReview.subscribe(bool => this.more_Review = bool);
+    this.utilService.toggleCustomerReview.pipe(
+      takeUntil(this.subject)
+    ).subscribe(bool => this.more_Review = bool);
   }
 
   ngOnInit() {
-    this.subject = new Subject<any>();
     this.utilService.sendLoadingIndicator(true);
     this.bookService.getIndividualBook(
       this.activatedRoute.snapshot.params['id']
@@ -49,6 +50,7 @@ export class BookDetailComponent implements OnInit, OnDestroy {
       });
     }
   }
+
   GetCustomerReview() {
     return this.book.reviews;
   }
@@ -69,5 +71,8 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     if (this.user) {
       this.userService.setUser(this.user);
     }
+    this.utilService.showCustomerReview(false);
+    this.subject.next();
+    this.subject.complete();
   }
 }
