@@ -11,7 +11,7 @@ import { User } from 'firebase';
   styleUrls: ['./book-detail.component.scss']
 })
 export class BookDetailComponent implements OnInit, OnDestroy {
-  subject: Subject<any>;
+  subject: Subject<any> = new Subject<any>();
   favorite: boolean;
   book: IBook | any;
   more_Review: boolean;
