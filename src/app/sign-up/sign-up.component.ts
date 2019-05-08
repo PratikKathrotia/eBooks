@@ -104,6 +104,11 @@ export class SignUpComponent implements OnInit {
       this.signUpForm.value['email'],
       this.signUpForm.value['password']
     ).then((success: any) => {
+      this.afAuth.auth.currentUser.sendEmailVerification().then(function() {
+        alert('please check the email to varify the account');
+      }).catch(function(error) {
+        alert(error);
+      });
       const tempUser: IUser = {
         firstName: this.signUpForm.value.firstName,
         lastName: this.signUpForm.value.lastName,
