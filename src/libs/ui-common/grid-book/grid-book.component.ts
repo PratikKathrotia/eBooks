@@ -3,6 +3,8 @@ import { IBook, UtilService, UserService, IUser } from '@angular-eBooks/sys-util
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { AuthGuard } from '@angular-eBooks/sys-utils';
+import { CanActivate } from '@angular/router/src/utils/preactivation';
 
 @Component({
   selector: 'eb-grid-book',
@@ -27,15 +29,20 @@ export class GridBookComponent implements OnInit {
   }
 
   handleFavoriteClick() {
-    this.isFavorited = !this.isFavorited;
-    this.favoriteState.emit({
-      bookId: this.book.id,
-      flag: this.isFavorited
-    });
-    this.utilService.showSnackBar(
-      this.isFavorited ? `${this.book.title} added to your favorites.` :
-          `${this.book.title} removed from your favorites`
-    );
+    if (localStorage.getItem('current_User')) {
+      this.isFavorited = !this.isFavorited;
+      this.favoriteState.emit({
+        bookId: this.book.id,
+        flag: this.isFavorited
+      });
+      this.utilService.showSnackBar(
+        this.isFavorited ? `${this.book.title} added to your favorites.` :
+        `${this.book.title} removed from your favorites`
+      );
+    } else {
+      alert(`Please Sign In or Sign Up to add this book into your favorite list.
+             Thank you!`);
+    }
   }
 
   handleBookClick() {
