@@ -30,6 +30,15 @@ export class SignInComponent implements OnInit {
     });
   }
 
+  resetPassword() {
+    this.afAuth.auth.sendPasswordResetEmail(this.signInForm.value['email']).
+    then(function() {
+      alert('Password reset link has been sent to the registered account.');
+    }).catch(function(error) {
+      alert(error);
+    });
+  }
+
   onSignInSubmit(): void {
     if (this.signInForm.value['checked'] === true) {
       localStorage.setItem('email', this.signInForm.value['email']);
