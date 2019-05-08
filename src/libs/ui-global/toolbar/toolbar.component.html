@@ -1,12 +1,12 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>eBooks</span>
+    <span class="link_to_main_page" (click)="navToMainPage()">eBooks</span>
     <span class="example-spacer"></span>
     <span class="sign_In_Span"
           (click)="openAuthPage('/sign-in')"
           *ngIf="!isLogin">Sign In</span>
     <mat-icon class="person_icon"
-              *ngIf="loggedIn">person</mat-icon>
+              *ngIf="isLogin">person</mat-icon>
     <span class="signUp_Span"
           (click)="logout()"
           *ngIf="isLogin">Logout</span>

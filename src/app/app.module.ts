@@ -34,7 +34,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     UiCommonModule,
     UiGlobalModule,
     UiContentModule,
-    AngularFireModule.initializeApp(environment.frebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule
   ],

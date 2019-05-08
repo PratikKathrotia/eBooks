@@ -11,7 +11,7 @@ export class ActionBarComponent implements OnInit {
   constructor(private utilService: UtilService) { }
 
   ngOnInit() {
-    this.itemsInTheCart = 2;
+    this.itemsInTheCart = null;
   }
 
   change_View(event) {

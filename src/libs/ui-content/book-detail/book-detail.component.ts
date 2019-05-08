@@ -48,6 +48,8 @@ export class BookDetailComponent implements OnInit, OnDestroy {
             this.favorite = true;
         }
       });
+    } else {
+      this.favorite = false;
     }
   }
 
@@ -55,15 +57,20 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     return this.book.reviews;
   }
   addFavorite() {
-    this.favorite = !this.favorite;
-    this.utilService.showSnackBar(
-      this.favorite ? `${this.book.title} removed from your favorites.` :
-          `${this.book.title} added to your favorites`
-    );
-    if (!this.favorite) {
-      this.user['favorites'].push(this.activatedRoute.snapshot.params['id']);
+    if (this.userId) {
+      this.favorite = !this.favorite;
+      this.utilService.showSnackBar(
+        this.favorite ? `${this.book.title} removed from your favorites.` :
+        `${this.book.title} added to your favorites`
+      );
+      if (!this.favorite) {
+        this.user['favorites'].push(this.activatedRoute.snapshot.params['id']);
+      } else {
+        this.user['favorites'].pop();
+      }
     } else {
-      this.user['favorites'].pop();
+        alert(`Please Sign In or Sign Up to add this book into your favorite list.
+        Thank you!`);
     }
   }
 

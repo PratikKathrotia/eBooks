@@ -19,12 +19,16 @@ export class ListBookComponent implements OnInit {
   }
 
   addFavorite() {
-    this.favorite = !this.favorite;
-    alert(localStorage.getItem('current_User'));
-    this.utilService.showSnackBar(
+    if (localStorage.getItem('current_user')) {
+      this.favorite = !this.favorite;
+      this.utilService.showSnackBar(
       this.favorite ? `${this.book.title} added to your favorites.` :
       `${this.book.title} removed from your favorites`
     );
+  } else {
+    alert(`Please Sign In or Sign Up to add this book into your favorite list.
+    Thank you!`);
+}
   }
 
   handleSelectBook() {
