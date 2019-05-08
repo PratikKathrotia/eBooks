@@ -6,7 +6,7 @@
           (click)="openAuthPage('/sign-in')"
           *ngIf="!isLogin">Sign In</span>
     <mat-icon class="person_icon"
-              *ngIf="loggedIn">person</mat-icon>
+              *ngIf="isLogin">person</mat-icon>
     <span class="signUp_Span"
           (click)="logout()"
           *ngIf="isLogin">Logout</span>
