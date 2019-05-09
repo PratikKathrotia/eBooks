@@ -49,7 +49,7 @@ export class BookDetailComponent implements OnInit, OnDestroy {
         }
       });
     } else {
-      this.favorite = false;
+      this.favorite = true;
     }
   }
 
