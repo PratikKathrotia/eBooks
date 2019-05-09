@@ -15,6 +15,7 @@ export class SignInComponent implements OnInit {
   checked = true;
   showDelay = new FormControl(1000);
   error_Message;
+  isEmailVerified: boolean;
 
   constructor(
     private authService: AuthService,
@@ -40,18 +41,24 @@ export class SignInComponent implements OnInit {
   }
 
   onSignInSubmit(): void {
-    if (this.signInForm.value['checked'] === true) {
-      localStorage.setItem('email', this.signInForm.value['email']);
-      localStorage.setItem('password', this.signInForm.value['password']);
-    }
-    this.authService.login(
-      this.signInForm.value['email'],
-      this.signInForm.value['password']
-    ).then((success: any) => {
-      localStorage.setItem('current_User', this.afAuth.auth.currentUser.uid);
-      this.router.navigate(['/global/home']);
-    }).catch(() => this.error_Message = `Error!: There is no user
-    record corresponding to this identifier. Please check the email or password
-    and try again.`);
+      if (this.signInForm.value['checked'] === true) {
+        localStorage.setItem('email', this.signInForm.value['email']);
+        localStorage.setItem('password', this.signInForm.value['password']);
+      }
+      this.authService.login(
+        this.signInForm.value['email'],
+        this.signInForm.value['password']
+      ).then((success: any) => {
+        this.isEmailVerified = this.afAuth.auth.currentUser.emailVerified;
+        if (this.isEmailVerified) {
+          localStorage.setItem('current_User', this.afAuth.auth.currentUser.uid);
+          this.router.navigate(['/global/home']);
+        } else {
+          this.error_Message = `The email has not been verified.
+                                Please verify the email to log in.`;
+        }
+      }).catch(() => this.error_Message = `Error!: There is no user
+      record corresponding to this identifier. Please check the email or password
+      and try again.`);
   }
 }
