@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validator } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '@angular-eBooks/sys-utils';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
@@ -29,6 +29,10 @@ export class SignInComponent implements OnInit {
       password: new FormControl(localStorage.getItem('password')),
       checked: new FormControl('')
     });
+  }
+
+  get isFormInvalid() {
+    return this.signInForm.invalid;
   }
 
   resetPassword() {
