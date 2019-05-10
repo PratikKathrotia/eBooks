@@ -1,47 +1,5 @@
 {
-  "sidebarItems": [
-    {
-      "name": "home",
-      "id": "item1",
-      "icon": "home",
-      "tooltip": "Home",
-      "routeUrl": "/global/home",
-      "showRail": false
-    },
-    {
-      "name": "categories",
-      "id": "item2",
-      "icon": "book",
-      "tooltip": "Categories",
-      "showRail": true,
-      "railItemList": []
-    },
-    {
-      "name": "bookmarks",
-      "id": "item3",
-      "icon": "favorite",
-      "tooltip": "Favorites",
-      "routeUrl": "/global/favorites",
-      "showRail": false
-    },
-    {
-      "name": "popular",
-      "id": "item5",
-      "icon": "grade",
-      "tooltip": "Popular",
-      "routeUrl": "/global/popular",
-      "showRail": false
-    },
-    {
-      "name": "settings",
-      "id": "item4",
-      "icon": "settings",
-      "tooltip": "Settings",
-      "routeUrl": "/global/settings",
-      "showRail": false
-    }
-  ],
-  "categories": [
+    "categories": [
     {
       "id": "cat1",
       "title": "Arts & Music",

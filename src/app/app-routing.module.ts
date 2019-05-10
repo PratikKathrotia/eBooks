@@ -13,23 +13,20 @@ import {
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { GlobalLayoutComponent } from './global-layout/global-layout.component';
-import { CategoryBooksComponent } from 'src/libs/ui-content/category-books/category-books.component';
+import {
+  CategoryBooksComponent
+} from 'src/libs/ui-content/category-books/category-books.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/global',
+    redirectTo: '/global/home',
     pathMatch: 'full'
   },
   {
     path: 'global',
     component: GlobalLayoutComponent,
     children: [
-      {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
-      },
       {
         path: 'home',
         component: HomeComponent

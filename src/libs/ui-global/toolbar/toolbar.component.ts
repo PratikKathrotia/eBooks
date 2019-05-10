@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@angular-eBooks/sys-utils';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'eb-toolbar',
@@ -9,7 +10,10 @@ import { AuthService } from '@angular-eBooks/sys-utils';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private location: Location) { }
 
   ngOnInit() {
   }
@@ -28,7 +32,9 @@ export class ToolbarComponent implements OnInit {
   logout() {
     this.authService.logout();
     localStorage.removeItem('current_User');
-    this.router.navigate(['/global/home']);
+    this.router.navigateByUrl('/global/popular', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['/global/home']);
+    });
   }
 
 }
