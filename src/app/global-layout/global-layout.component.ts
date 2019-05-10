@@ -30,14 +30,7 @@ export class GlobalLayoutComponent implements OnInit, OnDestroy {
       .subscribe(bool => this.showLoading = bool);
   }
 
-  ngOnInit() {
-    const currentUrl = this.router.routerState.snapshot.url;
-    if (currentUrl !== '/global') {
-      this.router.navigate([this.router.routerState.snapshot.url]);
-    } else {
-      this.router.navigate(['/global/home']);
-    }
-  }
+  ngOnInit() {}
 
   ngOnDestroy() {
     this.subject.next();

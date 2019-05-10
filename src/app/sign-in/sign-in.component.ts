@@ -61,4 +61,8 @@ export class SignInComponent implements OnInit {
       record corresponding to this identifier. Please check the email or password
       and try again.`);
   }
+
+  cancelSignIn() {
+    this.authService.logout();
+  }
 }
