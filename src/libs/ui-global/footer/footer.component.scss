@@ -1,0 +1,58 @@
+@import 'src/styles/variables.scss';
+
+.footer_Container {
+  margin-top: 0 * $px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid gray;
+  background-color: #d1eeeb;
+  height: 30vh;
+
+  .first_row {
+    display: flex;
+    flex-direction: column;
+    margin-left: 42%;
+    margin-top: 50 * $px;
+
+    .aboutUs_Portfolio {
+      display: flex;
+      padding: 10 * $px;
+      height: 10 * $px;
+      margin-left: 70 * $px;
+
+      p {
+        text-align: center;
+        display: inline;
+      }
+    }
+
+    .contact_Info {
+      display: flex;
+      padding: 10 * $px;
+      height: 10 * $px;
+      margin-left: -30 * $px;
+  
+      p {
+        text-align: center;
+        display: inline;
+      }
+    }
+  }
+
+  .privacy_Conditions {
+    display: flex;
+    flex-direction: row;
+    margin-left: 38.7%;
+    margin-top: 30 * $px;
+
+    span {
+      margin-left: 36 * $px;
+    }
+  }
+
+  .copy_Rights {
+    display: flex;
+    margin-left: 44%;
+    margin-top: 30 * $px;
+  }
+}
