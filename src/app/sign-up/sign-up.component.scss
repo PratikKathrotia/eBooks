@@ -6,6 +6,7 @@
   display: flex;
   height: 100vh;
   background: $background-color;
+  padding-bottom:66px;
 
   .signUp {
     box-shadow: 2 * $px 2 * $px 2 * $px 2 * $px $box-shadow-color;

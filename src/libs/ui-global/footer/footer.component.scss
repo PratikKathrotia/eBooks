@@ -15,7 +15,7 @@
     flex-direction: row;
     height: 59 * $px;
 
-    p {
+    .contact_Us {
       text-align: center;
       margin: auto;
 
@@ -35,7 +35,7 @@
     flex-direction: row;
     margin: auto;
 
-    p {
+    .about_Us {
       margin-top: 0 * $px;
       cursor: pointer;
     }
