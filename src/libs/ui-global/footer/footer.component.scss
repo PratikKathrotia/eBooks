@@ -1,0 +1,53 @@
+@import 'src/styles/variables.scss';
+
+.footer_Container {
+  margin-top: 0 * $px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid gray;
+  background-color: #353a3d;
+  height: 30vh;
+  color: rgb(243, 243, 240);
+
+  .footer_Header {
+    background-color: #5f6266;
+    display: flex;
+    flex-direction: row;
+    height: 59 * $px;
+
+    .contact_Us {
+      text-align: center;
+      margin: auto;
+
+      a {
+        color: rgb(243, 243, 240);
+      }
+
+      a:hover {
+        color: #ed9302;
+      }
+    }
+  }
+
+  .footer_Content {
+
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+
+    .about_Us {
+      margin-top: 0 * $px;
+      cursor: pointer;
+    }
+
+    span {
+      margin-left: 36 * $px;
+      cursor: pointer;
+    }
+
+  }
+
+  .copy_Rights {
+    margin: auto;
+  }
+}
