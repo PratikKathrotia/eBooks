@@ -5,6 +5,7 @@
     <span class="sign_In_Span"
           (click)="openAuthPage('/sign-in')"
           *ngIf="!isLogin">Sign In</span>
+    <span *ngIf="isLogin">Hi &nbsp; {{user.firstName}}!</span>
     <mat-icon class="person_icon"
               *ngIf="isLogin">person</mat-icon>
     <span class="signUp_Span"
